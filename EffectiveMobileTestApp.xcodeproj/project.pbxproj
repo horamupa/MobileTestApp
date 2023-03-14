@@ -8,17 +8,66 @@
 
 /* Begin PBXBuildFile section */
 		8D44E91629C06440003C328C /* EffectiveMobileTestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D44E91529C06440003C328C /* EffectiveMobileTestAppApp.swift */; };
-		8D44E91829C06440003C328C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D44E91729C06440003C328C /* ContentView.swift */; };
+		8D44E91829C06440003C328C /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D44E91729C06440003C328C /* CoordinatorView.swift */; };
 		8D44E91A29C06441003C328C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D44E91929C06441003C328C /* Assets.xcassets */; };
 		8D44E91D29C06441003C328C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D44E91C29C06441003C328C /* Preview Assets.xcassets */; };
+		8D44E92429C064A8003C328C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D44E92329C064A8003C328C /* Coordinator.swift */; };
+		8D44E92829C06867003C328C /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D44E92729C06867003C328C /* AuthView.swift */; };
+		8D44E92B29C0688B003C328C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D44E92A29C0688B003C328C /* HomeView.swift */; };
+		8D44E92E29C068A2003C328C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D44E92D29C068A2003C328C /* ProfileView.swift */; };
+		8D44E93129C068BD003C328C /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D44E93029C068BD003C328C /* ProductView.swift */; };
+		8D44E93429C06950003C328C /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D44E93329C06950003C328C /* SheetView.swift */; };
+		8D44E93629C06966003C328C /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D44E93529C06966003C328C /* TabBarView.swift */; };
+		8D44E93C29C07853003C328C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D44E93829C07853003C328C /* Fonts.swift */; };
+		8D44E93D29C07853003C328C /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D44E93929C07853003C328C /* Double.swift */; };
+		8D44E93E29C07853003C328C /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D44E93A29C07853003C328C /* PreviewProvider.swift */; };
+		8D44E93F29C07853003C328C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D44E93B29C07853003C328C /* Color.swift */; };
+		8D44E94829C078A3003C328C /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D44E94129C078A3003C328C /* Montserrat-Bold.ttf */; };
+		8D44E94929C078A3003C328C /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D44E94229C078A3003C328C /* Montserrat-Light.ttf */; };
+		8D44E94A29C078A3003C328C /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D44E94329C078A3003C328C /* Montserrat-Black.ttf */; };
+		8D44E94B29C078A3003C328C /* Montserrat-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D44E94429C078A3003C328C /* Montserrat-Italic.ttf */; };
+		8D44E94C29C078A3003C328C /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D44E94529C078A3003C328C /* Montserrat-Regular.ttf */; };
+		8D44E94D29C078A3003C328C /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D44E94629C078A3003C328C /* Montserrat-Medium.ttf */; };
+		8D44E94E29C078A3003C328C /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D44E94729C078A3003C328C /* Montserrat-SemiBold.ttf */; };
+		8D44E95129C07ACC003C328C /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D44E95029C07ACC003C328C /* AuthViewModel.swift */; };
+		8D44E95329C08377003C328C /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D44E95229C08376003C328C /* View.swift */; };
+		8D44E95729C0A579003C328C /* SecureFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D44E95629C0A579003C328C /* SecureFieldView.swift */; };
+		8D7BE2B629C0B27800CDE9A8 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BE2B529C0B27800CDE9A8 /* AuthService.swift */; };
+		8D7BE2BA29C0B36800CDE9A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BE2B929C0B36800CDE9A8 /* User.swift */; };
+		8D7BE2BC29C0B92D00CDE9A8 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BE2BB29C0B92D00CDE9A8 /* Array.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8D44E91229C06440003C328C /* EffectiveMobileTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EffectiveMobileTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D44E91529C06440003C328C /* EffectiveMobileTestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectiveMobileTestAppApp.swift; sourceTree = "<group>"; };
-		8D44E91729C06440003C328C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8D44E91729C06440003C328C /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
 		8D44E91929C06441003C328C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D44E91C29C06441003C328C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8D44E92329C064A8003C328C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		8D44E92729C06867003C328C /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		8D44E92A29C0688B003C328C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		8D44E92D29C068A2003C328C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		8D44E93029C068BD003C328C /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
+		8D44E93329C06950003C328C /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
+		8D44E93529C06966003C328C /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		8D44E93829C07853003C328C /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		8D44E93929C07853003C328C /* Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		8D44E93A29C07853003C328C /* PreviewProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
+		8D44E93B29C07853003C328C /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		8D44E94129C078A3003C328C /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		8D44E94229C078A3003C328C /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		8D44E94329C078A3003C328C /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.ttf"; sourceTree = "<group>"; };
+		8D44E94429C078A3003C328C /* Montserrat-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Italic.ttf"; sourceTree = "<group>"; };
+		8D44E94529C078A3003C328C /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		8D44E94629C078A3003C328C /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		8D44E94729C078A3003C328C /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		8D44E94F29C078CA003C328C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8D44E95029C07ACC003C328C /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		8D44E95229C08376003C328C /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		8D44E95629C0A579003C328C /* SecureFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureFieldView.swift; sourceTree = "<group>"; };
+		8D7BE2B529C0B27800CDE9A8 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		8D7BE2B929C0B36800CDE9A8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8D7BE2BB29C0B92D00CDE9A8 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,9 +100,17 @@
 		8D44E91429C06440003C328C /* EffectiveMobileTestApp */ = {
 			isa = PBXGroup;
 			children = (
+				8D7BE2B829C0B35400CDE9A8 /* Models */,
+				8D7BE2B729C0B27C00CDE9A8 /* Services */,
+				8D44E94F29C078CA003C328C /* Info.plist */,
+				8D44E93729C0783B003C328C /* Extension */,
 				8D44E91529C06440003C328C /* EffectiveMobileTestAppApp.swift */,
-				8D44E91729C06440003C328C /* ContentView.swift */,
+				8D44E91729C06440003C328C /* CoordinatorView.swift */,
+				8D44E92329C064A8003C328C /* Coordinator.swift */,
+				8D44E92529C06850003C328C /* Core */,
+				8D44E93229C0693C003C328C /* Components */,
 				8D44E91929C06441003C328C /* Assets.xcassets */,
+				8D44E94029C07865003C328C /* Fonts */,
 				8D44E91B29C06441003C328C /* Preview Content */,
 			);
 			path = EffectiveMobileTestApp;
@@ -65,6 +122,103 @@
 				8D44E91C29C06441003C328C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8D44E92529C06850003C328C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				8D44E92629C06858003C328C /* AuthView */,
+				8D44E92F29C068A7003C328C /* ProductView */,
+				8D44E92C29C06891003C328C /* ProfileView */,
+				8D44E92929C0687E003C328C /* homeView */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		8D44E92629C06858003C328C /* AuthView */ = {
+			isa = PBXGroup;
+			children = (
+				8D44E92729C06867003C328C /* AuthView.swift */,
+				8D44E95029C07ACC003C328C /* AuthViewModel.swift */,
+			);
+			path = AuthView;
+			sourceTree = "<group>";
+		};
+		8D44E92929C0687E003C328C /* homeView */ = {
+			isa = PBXGroup;
+			children = (
+				8D44E92A29C0688B003C328C /* HomeView.swift */,
+			);
+			path = homeView;
+			sourceTree = "<group>";
+		};
+		8D44E92C29C06891003C328C /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				8D44E92D29C068A2003C328C /* ProfileView.swift */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		8D44E92F29C068A7003C328C /* ProductView */ = {
+			isa = PBXGroup;
+			children = (
+				8D44E93029C068BD003C328C /* ProductView.swift */,
+			);
+			path = ProductView;
+			sourceTree = "<group>";
+		};
+		8D44E93229C0693C003C328C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8D44E93329C06950003C328C /* SheetView.swift */,
+				8D44E93529C06966003C328C /* TabBarView.swift */,
+				8D44E95629C0A579003C328C /* SecureFieldView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		8D44E93729C0783B003C328C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8D44E93B29C07853003C328C /* Color.swift */,
+				8D44E93929C07853003C328C /* Double.swift */,
+				8D44E93829C07853003C328C /* Fonts.swift */,
+				8D44E93A29C07853003C328C /* PreviewProvider.swift */,
+				8D44E95229C08376003C328C /* View.swift */,
+				8D7BE2BB29C0B92D00CDE9A8 /* Array.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		8D44E94029C07865003C328C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8D44E94329C078A3003C328C /* Montserrat-Black.ttf */,
+				8D44E94129C078A3003C328C /* Montserrat-Bold.ttf */,
+				8D44E94429C078A3003C328C /* Montserrat-Italic.ttf */,
+				8D44E94229C078A3003C328C /* Montserrat-Light.ttf */,
+				8D44E94629C078A3003C328C /* Montserrat-Medium.ttf */,
+				8D44E94529C078A3003C328C /* Montserrat-Regular.ttf */,
+				8D44E94729C078A3003C328C /* Montserrat-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		8D7BE2B729C0B27C00CDE9A8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8D7BE2B529C0B27800CDE9A8 /* AuthService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8D7BE2B829C0B35400CDE9A8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8D7BE2B929C0B36800CDE9A8 /* User.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,8 +279,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D44E94929C078A3003C328C /* Montserrat-Light.ttf in Resources */,
+				8D44E94A29C078A3003C328C /* Montserrat-Black.ttf in Resources */,
+				8D44E94C29C078A3003C328C /* Montserrat-Regular.ttf in Resources */,
 				8D44E91D29C06441003C328C /* Preview Assets.xcassets in Resources */,
+				8D44E94B29C078A3003C328C /* Montserrat-Italic.ttf in Resources */,
 				8D44E91A29C06441003C328C /* Assets.xcassets in Resources */,
+				8D44E94E29C078A3003C328C /* Montserrat-SemiBold.ttf in Resources */,
+				8D44E94D29C078A3003C328C /* Montserrat-Medium.ttf in Resources */,
+				8D44E94829C078A3003C328C /* Montserrat-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +298,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D44E91829C06440003C328C /* ContentView.swift in Sources */,
+				8D44E91829C06440003C328C /* CoordinatorView.swift in Sources */,
+				8D44E93E29C07853003C328C /* PreviewProvider.swift in Sources */,
+				8D44E95329C08377003C328C /* View.swift in Sources */,
 				8D44E91629C06440003C328C /* EffectiveMobileTestAppApp.swift in Sources */,
+				8D44E92829C06867003C328C /* AuthView.swift in Sources */,
+				8D44E93F29C07853003C328C /* Color.swift in Sources */,
+				8D44E92B29C0688B003C328C /* HomeView.swift in Sources */,
+				8D44E93129C068BD003C328C /* ProductView.swift in Sources */,
+				8D44E92E29C068A2003C328C /* ProfileView.swift in Sources */,
+				8D7BE2BC29C0B92D00CDE9A8 /* Array.swift in Sources */,
+				8D44E93C29C07853003C328C /* Fonts.swift in Sources */,
+				8D44E93629C06966003C328C /* TabBarView.swift in Sources */,
+				8D44E95129C07ACC003C328C /* AuthViewModel.swift in Sources */,
+				8D7BE2BA29C0B36800CDE9A8 /* User.swift in Sources */,
+				8D44E93429C06950003C328C /* SheetView.swift in Sources */,
+				8D44E93D29C07853003C328C /* Double.swift in Sources */,
+				8D7BE2B629C0B27800CDE9A8 /* AuthService.swift in Sources */,
+				8D44E95729C0A579003C328C /* SecureFieldView.swift in Sources */,
+				8D44E92429C064A8003C328C /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +448,7 @@
 				DEVELOPMENT_TEAM = 79GHQ256TM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EffectiveMobileTestApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,6 +478,7 @@
 				DEVELOPMENT_TEAM = 79GHQ256TM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EffectiveMobileTestApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
