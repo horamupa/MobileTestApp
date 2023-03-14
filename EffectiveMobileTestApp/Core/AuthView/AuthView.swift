@@ -35,7 +35,7 @@ extension AuthView {
     private var SignInLogIn: some View {
         VStack(alignment: .leading) {
             Button {
-                if !vm.firstName.isEmpty && !vm.lastName.isEmpty {
+                if !vm.firstName.isEmpty && !vm.lastName.isEmpty &&  isEmailValid {
                     if AuthService.shared.signIn(email: vm.email, password: vm.firstName+vm.lastName) {
                         coordinator.push(.homeView)
                         }

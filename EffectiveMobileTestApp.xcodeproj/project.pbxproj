@@ -35,6 +35,10 @@
 		8D7BE2B629C0B27800CDE9A8 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BE2B529C0B27800CDE9A8 /* AuthService.swift */; };
 		8D7BE2BA29C0B36800CDE9A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BE2B929C0B36800CDE9A8 /* User.swift */; };
 		8D7BE2BC29C0B92D00CDE9A8 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BE2BB29C0B92D00CDE9A8 /* Array.swift */; };
+		8D7BE2C229C0CE5200CDE9A8 /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BE2C129C0CE5200CDE9A8 /* CustomTabBarView.swift */; };
+		8D7BE2C429C0D5A800CDE9A8 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BE2C329C0D5A800CDE9A8 /* TabBarItem.swift */; };
+		8D7BE2C629C0DCBD00CDE9A8 /* CustomTabBarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BE2C529C0DCBD00CDE9A8 /* CustomTabBarContainerView.swift */; };
+		8D7BE2C829C0EBBB00CDE9A8 /* ProfileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BE2C729C0EBBB00CDE9A8 /* ProfileRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +72,10 @@
 		8D7BE2B529C0B27800CDE9A8 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		8D7BE2B929C0B36800CDE9A8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8D7BE2BB29C0B92D00CDE9A8 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		8D7BE2C129C0CE5200CDE9A8 /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
+		8D7BE2C329C0D5A800CDE9A8 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
+		8D7BE2C529C0DCBD00CDE9A8 /* CustomTabBarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarContainerView.swift; sourceTree = "<group>"; };
+		8D7BE2C729C0EBBB00CDE9A8 /* ProfileRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,7 +181,10 @@
 			children = (
 				8D44E93329C06950003C328C /* SheetView.swift */,
 				8D44E93529C06966003C328C /* TabBarView.swift */,
+				8D7BE2C129C0CE5200CDE9A8 /* CustomTabBarView.swift */,
+				8D7BE2C529C0DCBD00CDE9A8 /* CustomTabBarContainerView.swift */,
 				8D44E95629C0A579003C328C /* SecureFieldView.swift */,
+				8D7BE2C729C0EBBB00CDE9A8 /* ProfileRow.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -217,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				8D7BE2B929C0B36800CDE9A8 /* User.swift */,
+				8D7BE2C329C0D5A800CDE9A8 /* TabBarItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -303,18 +315,22 @@
 				8D44E95329C08377003C328C /* View.swift in Sources */,
 				8D44E91629C06440003C328C /* EffectiveMobileTestAppApp.swift in Sources */,
 				8D44E92829C06867003C328C /* AuthView.swift in Sources */,
+				8D7BE2C829C0EBBB00CDE9A8 /* ProfileRow.swift in Sources */,
 				8D44E93F29C07853003C328C /* Color.swift in Sources */,
 				8D44E92B29C0688B003C328C /* HomeView.swift in Sources */,
 				8D44E93129C068BD003C328C /* ProductView.swift in Sources */,
 				8D44E92E29C068A2003C328C /* ProfileView.swift in Sources */,
 				8D7BE2BC29C0B92D00CDE9A8 /* Array.swift in Sources */,
 				8D44E93C29C07853003C328C /* Fonts.swift in Sources */,
+				8D7BE2C229C0CE5200CDE9A8 /* CustomTabBarView.swift in Sources */,
 				8D44E93629C06966003C328C /* TabBarView.swift in Sources */,
+				8D7BE2C629C0DCBD00CDE9A8 /* CustomTabBarContainerView.swift in Sources */,
 				8D44E95129C07ACC003C328C /* AuthViewModel.swift in Sources */,
 				8D7BE2BA29C0B36800CDE9A8 /* User.swift in Sources */,
 				8D44E93429C06950003C328C /* SheetView.swift in Sources */,
 				8D44E93D29C07853003C328C /* Double.swift in Sources */,
 				8D7BE2B629C0B27800CDE9A8 /* AuthService.swift in Sources */,
+				8D7BE2C429C0D5A800CDE9A8 /* TabBarItem.swift in Sources */,
 				8D44E95729C0A579003C328C /* SecureFieldView.swift in Sources */,
 				8D44E92429C064A8003C328C /* Coordinator.swift in Sources */,
 			);

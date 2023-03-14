@@ -25,4 +25,5 @@ struct ColorTheme {
     let secondary = Color("MyGray")
     let fbBlue = Color("fbBlue")
     let lightGray = Color("LightGray")
+    let middleGray = Color("middleGray")
 }
