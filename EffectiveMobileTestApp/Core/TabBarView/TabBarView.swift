@@ -9,13 +9,21 @@ import SwiftUI
 
 struct TabBarView: View {
     @EnvironmentObject private var coordinator: Coordinator
-    @State var tabSelection: TabBarItem = TabBarItem(image: "HomeLogo")
-    
+    @State var tabSelection: TabBarItem = .home
+    @State private var isCustomNavBar = false
 
     var body: some View {
-//        defTabBar
         CustomTabBarContainerView(selection: $tabSelection) {
-            Color.red
+            HomeView(tabSelection: $tabSelection)
+                .tabBarItem(tab: .home, selection: $tabSelection)
+            HeartView()
+                .tabBarItem(tab: .heart, selection: $tabSelection)
+            CartView()
+                .tabBarItem(tab: .cart, selection: $tabSelection)
+            DialogView()
+                .tabBarItem(tab: .dialog, selection: $tabSelection)
+            ProfileView()
+                .tabBarItem(tab: .profile, selection: $tabSelection)
         }
         /*
         VStack {
@@ -32,7 +40,9 @@ struct TabBarView: View {
 
 struct FullScreenCoverView_Previews: PreviewProvider {
     static var previews: some View {
-        TabBarView()
+        NavigationView {
+            TabBarView()
+        }
     }
 }
 

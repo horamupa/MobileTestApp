@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ProfileView: View {
     @EnvironmentObject private var coordinator: Coordinator
-
+    @Environment(\.dismiss) var dismiss
     var body: some View {
-        NavigationView {
+//        NavigationView {
             ScrollView {
                 VStack(spacing: 16) {
                     photoUploadView
@@ -21,14 +21,28 @@ struct ProfileView: View {
             .padding(.horizontal, 32)
             .navigationTitle("Profile")
             .navigationBarTitleDisplayMode(.inline)
-        }
-        
+            .navigationBarBackButtonHidden(false)
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarLeading) {
+//                    Button {
+//                        dismiss
+//                    } label: {
+//                        Image(systemName: "arrow.left")
+//                            .bold()
+//                            .foregroundColor(Color.black)
+//                    }
+//                }
+//            }
+//        }
+            
     }
 }
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        NavigationView {
+            ProfileView()
+        }
     }
 }
 

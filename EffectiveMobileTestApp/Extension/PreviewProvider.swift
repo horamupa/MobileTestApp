@@ -22,11 +22,7 @@ class DeveloperPreview {
     private init() {  }
     
     let tabs: [TabBarItem] = [
-        TabBarItem(image: "HomeLogo"),
-        TabBarItem(image: "HeartLogo"),
-        TabBarItem(image: "CartLogo"),
-        TabBarItem(image: "DialogLogo"),
-        TabBarItem(image: "ProfileLogo")
+        .profile,.dialog,.cart,.heart,.home
     ]
     
     @State var isTabBar:Bool = false

@@ -10,25 +10,23 @@ import SwiftUI
 struct CustomTabBarContainerView<Content: View>: View {
     
     @Binding var selection: TabBarItem
-    let content: Content
-    let tabs: [TabBarItem] = [
-        TabBarItem(image: "HomeLogo"),
-    TabBarItem(image: "HeartLogo"),
-    TabBarItem(image: "CartLogo"),
-    TabBarItem(image: "DialogLogo"),
-    TabBarItem(image: "ProfileLogo")
-        ]
-    init(selection: Binding<TabBarItem>, content: () -> Content) {
+    var content: Content
+    @State var tabs: [TabBarItem] = []
+    
+    init(selection: Binding<TabBarItem>, @ViewBuilder content: () -> Content) {
         _selection = selection
         self.content = content()
     }
+    
     var body: some View {
         VStack(spacing: 0) {
             ZStack {
                 content
-//                    .ignoresSafeArea()
             }
-            CustomTabBarView(tabs: tabs, selection: $selection)
+            CustomTabBarItem(tabs: tabs, selection: $selection)
+        }
+        .onPreferenceChange(TabBarItemPreferenceKey.self) { value in
+            self.tabs = value
         }
     }
 }

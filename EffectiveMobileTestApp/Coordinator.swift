@@ -70,7 +70,8 @@ class Coordinator: ObservableObject {
         case .authView:
             AuthView()
         case .homeView:
-            HomeView()
+//            HomeView()
+            ProfileView()
         case .profileView:
             ProfileView()
         case .productView:
