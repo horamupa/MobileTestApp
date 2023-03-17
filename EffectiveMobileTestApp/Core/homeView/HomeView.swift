@@ -12,64 +12,69 @@ struct HomeView: View {
     @State var searchText: String = ""
     @State private var selectedOptions: ShopFilterOptions = .mobile
     @Binding var tabSelection: TabBarItem
-    var saleGrid: [GridItem] = [GridItem(.fixed(100))]
+    var latestGrid: [GridItem] = [.init(.flexible())]
+    var saleGrid: [GridItem] = [.init(.flexible())]
     
     private var isCustomNavBar: Bool { tabSelection == .home ? true : false }
     var body: some View {
-        VStack {
-            searchView
-            filtersView
-            latestView
-            flashSaleView
-            Text("HomeView")
-            Button {
-                coordinator.push(.profileView)
-            } label: {
-                Text("Go to ProfileView")
-            }
+        ScrollView {
+            VStack {
+                searchView
+                filtersView
+                latestView
+                flashSaleView
+                brandsView
+                /*
+                Text("HomeView")
+                Button {
+                    coordinator.push(.profileView)
+                } label: {
+                    Text("Go to ProfileView")
+                }
 
-            Button {
-                coordinator.pop()
-            } label: {
-                Text("PopThisScreen")
+                Button {
+                    coordinator.pop()
+                } label: {
+                    Text("PopThisScreen")
+                }
+                 */
             }
-            Color.red
-        }
-        .padding(.horizontal, 8)
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            if isCustomNavBar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Image("MenuLogoSmall")
-                }
-                ToolbarItem(placement: .principal) {
-                    HStack {
-                        Text("Trade by")
-                        Text("Bata")
-                            .foregroundColor(Color.theme.fbBlue)
+            .padding(.horizontal, 8)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                if isCustomNavBar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Image("MenuLogoSmall")
                     }
-                    .font(.mantserrat(.bold, size: 24))
-                    .padding(.top, 6)
-                    
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    VStack {
-                        Image("ProfilePhoto")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 24)
-                        HStack(spacing: 2) {
-                            Text("Location")
-                            Image(systemName: "chevron.down")
+                    ToolbarItem(placement: .principal) {
+                        HStack {
+                            Text("Trade by")
+                            Text("Bata")
+                                .foregroundColor(Color.theme.fbBlue)
+                        }
+                        .font(.mantserrat(.bold, size: 24))
+                        .padding(.top, 6)
+                        
+                    }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        VStack {
+                            Image("ProfilePhoto")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: 5)
+                                .frame(height: 24)
+                            HStack(spacing: 2) {
+                                Text("Location")
+                                Image(systemName: "chevron.down")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: 5)
+                            }
+                            .font(.mantserrat(.regular, size: 13))
                         }
-                        .font(.mantserrat(.regular, size: 13))
+                        
                     }
-                    
                 }
-            }
+        }
         }
     }
 }
@@ -87,7 +92,7 @@ extension HomeView {
     private var searchView: some View {
         TextField("", text: $searchText)
             .placeholderCenter(when: searchText.isEmpty, placeholder: {
-                Text("What are you looking for?").foregroundColor(Color.theme.middleGray)
+                Text("What are you looking for?").foregroundColor(Color.theme.middleGray).tracking(-0.5)
             })
             .padding(.vertical, 4)
             .background(Color.theme.lightGray2)
@@ -121,12 +126,9 @@ extension HomeView {
             }
             .padding(.top, 8)
             ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack {
+                LazyHGrid(rows: latestGrid) {
                     ForEach(0..<10) {_ in
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke()
-                            .frame(width: 114)
-                            .padding(1)
+                        LatestView()
                     }
                 }
             }
@@ -146,13 +148,33 @@ extension HomeView {
             }
             .padding(.top, 8)
             ScrollView(.horizontal, showsIndicators: false) {
-//                LazyHStack {
                 LazyHGrid(rows: saleGrid) {
                     ForEach(0..<10) {_ in
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke()
-//                            .frame(width: 114)
-//                            .padding(1)
+                        SalesView()
+//                            .stroke()
+//                            .frame(width: UIScreen.main.bounds.width / 2 - 14)
+                    }
+                }
+            }
+            .frame(height: 221)
+        }
+    }
+    
+    private var brandsView: some View {
+        VStack(spacing: 8) {
+            HStack {
+                Text("Brands")
+                    .font(.mantserrat(.semibold, size: 16))
+                Spacer()
+                Text("View all")
+                    .font(.mantserrat(.regular, size: 13))
+                    .foregroundColor(Color.theme.middleGray)
+            }
+            .padding(.top, 8)
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHGrid(rows: latestGrid) {
+                    ForEach(0..<10) {_ in
+                        LatestView()
                     }
                 }
             }

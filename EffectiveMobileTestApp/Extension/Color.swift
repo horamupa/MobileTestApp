@@ -27,4 +27,5 @@ struct ColorTheme {
     let lightGray = Color("LightGray")
     let lightGray2 = Color("LightGray2")
     let middleGray = Color("middleGray")
+    let discountColor = Color("discountColor")
 }
