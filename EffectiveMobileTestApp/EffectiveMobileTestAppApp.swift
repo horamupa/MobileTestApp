@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct EffectiveMobileTestAppApp: App {
+    
+    @StateObject var coordinator: Coordinator = Coordinator(dataManager: DataService(), authManager: AuthService())
+    
     var body: some Scene {
+        
         WindowGroup {
-            CoordinatorView()
+//            CoordinatorView()
+            TabBarView()
+                .environmentObject(coordinator)
         }
     }
 }

@@ -6,18 +6,32 @@
 //
 
 import SwiftUI
+import Combine
 
-class AuthService {
+class AuthService: ObservableObject {
     
     var users: [User] = []
-    var user: User?
+    @Published var user: User? = nil
+    @Published var isUserNil: Bool = true
+    private var cancellables = Set<AnyCancellable>()
     
     static let shared = AuthService()
     
-    private init() {
+    init() {
         getUsers()
+        $user
+            .map{data -> Bool in
+                data == nil
+            }
+            .sink { value in
+                self.isUserNil = value
+            }
+            .store(in: &cancellables)
     }
    
+    func setUser(email: String, password: String) {
+        user = User(user: email, password: password)
+    }
     
     func login(email: String, password: String) -> Bool {
         users.contains { user in
@@ -27,6 +41,7 @@ class AuthService {
 
     func signIn(email: String, password: String) -> Bool {
         users.append(User(user: email, password: password))
+        setUser(email: email, password: password)
         saveUsers()
         return true
     }

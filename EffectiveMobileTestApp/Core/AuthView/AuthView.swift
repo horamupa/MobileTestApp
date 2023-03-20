@@ -12,9 +12,10 @@ struct AuthView: View {
     @EnvironmentObject private var coordinator: Coordinator
     @StateObject var vm: AuthViewModel = AuthViewModel()
     @State var isNeedLogin: Bool = false
-    @State var isShowPassword: Bool = true
+    @State var isShowPassword: Bool = false
     @State var isEmailValid: Bool = true
     @State var isUserExist: Bool = false
+    var authManager = AuthService.shared
     
     var body: some View {
         if !isNeedLogin {
@@ -27,17 +28,32 @@ struct AuthView: View {
 
 struct AuthView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthView()
+        AuthView(authManager: AuthService.shared)
     }
 }
 
 extension AuthView {
     private var SignInLogIn: some View {
         VStack(alignment: .leading) {
+//            if let user = Auth {
+//                Text("\(user.user)")
+//                    .font(.title)
+//                    .padding()
+//                    .background(Color.blue)
+//                    .cornerRadius(20)
+//            } else {
+//                Text("No user in coor")
+//                    .font(.title)
+//                    .padding()
+//                    .background(Color.blue)
+//                    .cornerRadius(20)
+//            }
+//            Text("\(coordinator.authManager.user?.user)")
             Button {
                 if !vm.firstName.isEmpty && !vm.lastName.isEmpty &&  isEmailValid {
                     if AuthService.shared.signIn(email: vm.email, password: vm.firstName+vm.lastName) {
-                        coordinator.push(.homeView)
+                        coordinator.push(.tabBarView)
+                        coordinator.authManager.setUser(email: vm.email, password: vm.firstName+vm.lastName)
                         }
                 } else {
                     if AuthService.shared.checkName(email: vm.email) {
@@ -172,7 +188,7 @@ extension AuthView {
     private var logInButton: some View {
         Button {
             if AuthService.shared.login(email: vm.email, password: vm.password) {
-                coordinator.push(.homeView)
+                AuthService.shared.setUser(email: vm.email, password: vm.password)
             }
         } label: {
             Text("Log in")

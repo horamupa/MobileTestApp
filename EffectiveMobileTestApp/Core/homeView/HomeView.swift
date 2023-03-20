@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct HomeView: View {
-    @EnvironmentObject private var coordinator: Coordinator
+    @EnvironmentObject var coordinator: HomeCoordinator
     @State var searchText: String = ""
     @State private var selectedOptions: ShopFilterOptions = .mobile
-    @Binding var tabSelection: TabBarItem
+    @State  var tabSelection: TabBarItem = .home
     var latestGrid: [GridItem] = [.init(.flexible())]
     var saleGrid: [GridItem] = [.init(.flexible())]
     
@@ -41,6 +41,7 @@ struct HomeView: View {
             }
             .padding(.horizontal, 8)
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
             .toolbar {
                 if isCustomNavBar {
                     ToolbarItem(placement: .navigationBarLeading) {
@@ -82,7 +83,7 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            HomeView(tabSelection: .constant(.home))
+            HomeView()
         }
        
     }
@@ -129,6 +130,9 @@ extension HomeView {
                 LazyHGrid(rows: latestGrid) {
                     ForEach(0..<10) {_ in
                         LatestView()
+                            .onTapGesture {
+                                coordinator.push(.productView)
+                            }
                     }
                 }
             }
@@ -150,9 +154,9 @@ extension HomeView {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: saleGrid) {
                     ForEach(0..<10) {_ in
-                        SalesView()
-//                            .stroke()
-//                            .frame(width: UIScreen.main.bounds.width / 2 - 14)
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke()
+                            .frame(width: UIScreen.main.bounds.width / 2 - 14)
                     }
                 }
             }
@@ -174,6 +178,8 @@ extension HomeView {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: latestGrid) {
                     ForEach(0..<10) {_ in
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(style: .init(lineWidth: 2))
                         LatestView()
                     }
                 }
