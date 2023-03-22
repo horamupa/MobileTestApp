@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ShopFilterView: View {
     @Binding var selectedOption: ShopFilterOptions
+    var vm: HomeViewModel
+//    @State var isActive: Bool = false
     var body: some View {
             HStack {
                 ForEach(ShopFilterOptions.allCases, id: \.self) { item in
@@ -22,29 +24,14 @@ struct ShopFilterView: View {
                                 .scaledToFit()
                                 .frame(width: 20, height: 20)
                         }
-//                        .frame(height: 38)
                         Text(item.image)
-                            .font(.mantserrat(.regular, size: 8))
-                            .foregroundColor(Color.theme.middleGray)
-//                            .foregroundColor(item == selectedOption ? .white : .white.opacity(0.7))
-//                        if selectedOption == item {
-//                            Capsule()
-//                                .fill(.white)
-//                                .frame(height: 3)
-//                                .padding(.horizontal, -4)
-//                                .offset(y: -4)
-//                        } else {
-//                            Capsule()
-//                                .fill(.clear)
-//                                .frame(height: 3)
-//                                .padding(.horizontal, -4)
-//                                .offset(y: -4)
-//                        }
+                            .font(vm.isSelectedOption == item ? .mantserrat(.semibold, size: 8) : .mantserrat(.regular, size: 8))
+//                            .foregroundColor(selectedOption == item ? Color.theme.middleGray : Color )
                     }
-//                    .padding(.horizontal, 8)
-//                    .onTapGesture {
-//                        self.selectedOption = item
-//                    }
+                    .onTapGesture {
+                        vm.setFilter(category: item.image)
+                        vm.setSelectedOption(option: item)
+                    }
                     .frame(maxWidth: .infinity)
                 }
             }
@@ -54,12 +41,12 @@ struct ShopFilterView: View {
 
 struct ShopFilterView_Previews: PreviewProvider {
     static var previews: some View {
-        ShopFilterView(selectedOption: .constant(.mobile))
+        ShopFilterView(selectedOption: .constant(.phones), vm: HomeViewModel(dataManager: dev.dataManager))
     }
 }
 
 enum ShopFilterOptions: Int, CaseIterable {
-    case mobile
+    case phones
     case headphones
     case game
     case cars
@@ -68,14 +55,14 @@ enum ShopFilterOptions: Int, CaseIterable {
     
     var image: String {
         switch self {
-        case .mobile:
-            return "Mobile"
+        case .phones:
+            return "Phones"
         case .headphones:
             return "Headphones"
         case .game:
             return "Games"
         case .cars:
-            return "Car"
+            return "Cars"
         case .furniture:
             return "Furniture"
         case .kids:

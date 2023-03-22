@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct SalesView: View {
+    
+    var model: FlashSaleModel
+    
     var body: some View {
         ZStack(alignment: .bottom) {
-            Image("waha2")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
+            AsyncImageView(url: model.imageURL)
                 .frame(width: UIScreen.main.bounds.width / 2 - 14)
                 .clipped()
                 .cornerRadius(10)
@@ -20,27 +21,30 @@ struct SalesView: View {
                 VStack(alignment: .leading) {
                     Image("shopImage")
                     Spacer()
-                    Text("Games")
-                        .font(.mantserrat(.semibold, size: 14))
-                        .foregroundColor(Color.black)
-                        .padding(.vertical, 2)
-                        .padding(.horizontal, 4)
-                        .background(Color.white.opacity(0.8))
-                        .cornerRadius(10)
-                        .tracking(-0.5)
-                    Text("Ultramarin")
-                        .font(.mantserrat(.bold, size: 16))
-                        .foregroundColor(.white)
-                        .minimumScaleFactor(0.9)
-                        .lineLimit(2, reservesSpace: true)
-                    Text("$ Price")
-                        .font(.mantserrat(.bold, size: 16))
-                        .foregroundColor(.white)
+                    VStack {
+                        Text(model.category)
+                            .font(.mantserrat(.semibold, size: 14))
+                            .foregroundColor(Color.black)
+                            .padding(.vertical, 2)
+                            .padding(.horizontal, 4)
+                            .background(Color.white.opacity(0.8))
+                            .cornerRadius(10)
+                            .tracking(-0.5)
+                        Text(model.name)
+                            .font(.mantserrat(.bold, size: 16))
+                            .foregroundColor(.white)
+                            .minimumScaleFactor(0.9)
+                            .lineLimit(2, reservesSpace: true)
+                        Text("$" + "\(model.price)")
+                            .font(.mantserrat(.bold, size: 16))
+                            .foregroundColor(.white)
+                    }
+                    .shadow(color: .black.opacity(0.5), radius: 2, x: 0, y: 0)
                 }
                 .padding(.leading, 4)
                 Spacer()
                 VStack {
-                    Text("30% off")
+                    Text("\(model.discount)% off")
                         .font(.mantserrat(.bold, size: 12))
                         .foregroundColor(Color.white)
                         .background {
@@ -74,8 +78,24 @@ struct SalesView: View {
 
 struct SalesView_Previews: PreviewProvider {
     static var previews: some View {
-        SalesView()
+        SalesView(model: dev.flashSaleModel)
             .previewLayout(.sizeThatFits)
             .frame(height: 221)
+    }
+}
+
+
+struct SalesEmptyView: View {
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(style: .init(lineWidth: 1))
+                .padding(1)
+                .foregroundColor(.black.opacity(0.5))
+                .frame(width: UIScreen.main.bounds.width / 2 - 14)
+            Text("No items in category")
+                .font(.mantserrat(.regular, size: 8))
+                .foregroundColor(Color.theme.middleGray)
+        }
     }
 }

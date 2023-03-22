@@ -68,4 +68,8 @@ class AuthService: ObservableObject {
         }
         self.users = savedData
     }
+    
+    func logOff() {
+        user = nil
+    }
 }

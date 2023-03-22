@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SheetView: View {
-    @EnvironmentObject private var coordinator: Coordinator
+    @EnvironmentObject private var coordinator: HomeCoordinator
 
     var body: some View {
         VStack {

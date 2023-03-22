@@ -9,13 +9,15 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var coordinator: HomeCoordinator
+    @StateObject var vm: HomeViewModel
     @State var searchText: String = ""
-    @State private var selectedOptions: ShopFilterOptions = .mobile
     @State  var tabSelection: TabBarItem = .home
     var latestGrid: [GridItem] = [.init(.flexible())]
     var saleGrid: [GridItem] = [.init(.flexible())]
     
-    private var isCustomNavBar: Bool { tabSelection == .home ? true : false }
+    
+    
+//    private var isCustomNavBar: Bool { tabSelection == .home ? true : false }
     var body: some View {
         ScrollView {
             VStack {
@@ -24,26 +26,12 @@ struct HomeView: View {
                 latestView
                 flashSaleView
                 brandsView
-                /*
-                Text("HomeView")
-                Button {
-                    coordinator.push(.profileView)
-                } label: {
-                    Text("Go to ProfileView")
-                }
-
-                Button {
-                    coordinator.pop()
-                } label: {
-                    Text("PopThisScreen")
-                }
-                 */
             }
             .padding(.horizontal, 8)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
             .toolbar {
-                if isCustomNavBar {
+//                if isCustomNavBar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Image("MenuLogoSmall")
                     }
@@ -75,7 +63,7 @@ struct HomeView: View {
                         
                     }
                 }
-        }
+//        }
         }
     }
 }
@@ -83,7 +71,7 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            HomeView()
+            HomeView(vm: .init(dataManager: dev.coordinator.dataManager))
         }
        
     }
@@ -111,7 +99,7 @@ extension HomeView {
     }
     
     private var filtersView: some View {
-        ShopFilterView(selectedOption: $selectedOptions)
+        ShopFilterView(selectedOption: $vm.selectedOptions, vm: vm)
             .padding(.top, 10)
     }
     
@@ -128,11 +116,15 @@ extension HomeView {
             .padding(.top, 8)
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: latestGrid) {
-                    ForEach(0..<10) {_ in
-                        LatestView()
-                            .onTapGesture {
-                                coordinator.push(.productView)
-                            }
+                    if (vm.isSelectedOption != nil && vm.latestFiltred.isEmpty) {
+                        LatestEmptyView()
+                    } else {
+                        ForEach(vm.isSelectedOption != nil ? vm.latestFiltred : vm.latest) { item in
+                            LatestView(model: item)
+                                .onTapGesture {
+                                    coordinator.push(.productView)
+                                }
+                        }
                     }
                 }
             }
@@ -153,11 +145,18 @@ extension HomeView {
             .padding(.top, 8)
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: saleGrid) {
-                    ForEach(0..<10) {_ in
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke()
-                            .frame(width: UIScreen.main.bounds.width / 2 - 14)
+                    if (vm.isSelectedOption != nil && vm.saleFiltred.isEmpty) {
+                        SalesEmptyView()
+                    } else {
+                        ForEach(vm.isSelectedOption != nil ? vm.saleFiltred : vm.flashSale) { item in
+                            Button {
+                                coordinator.push(.productView)
+                            } label: {
+                                SalesView(model: item)
+                            }
+                        }
                     }
+//                    .frame(width: UIScreen.main.bounds.width / 2 - 14)
                 }
             }
             .frame(height: 221)
@@ -177,10 +176,11 @@ extension HomeView {
             .padding(.top, 8)
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: latestGrid) {
-                    ForEach(0..<10) {_ in
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(style: .init(lineWidth: 2))
-                        LatestView()
+                    ForEach(vm.latest) { item in
+                        LatestView(model: item)
+                            .onTapGesture {
+                                coordinator.push(.productView)
+                            }
                     }
                 }
             }

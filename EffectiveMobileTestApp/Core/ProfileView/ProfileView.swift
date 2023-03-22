@@ -22,6 +22,7 @@ struct ProfileView: View {
             .navigationTitle("Profile")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(false)
+            .scrollIndicators(.hidden)
 //            .toolbar {
 //                ToolbarItem(placement: .navigationBarLeading) {
 //                    Button {
@@ -91,7 +92,7 @@ extension ProfileView {
             ProfileRow(image: "QuestionLogo", text: "Help", isChevron: true)
             ProfileRow(image: "LogoutLogo", text: "Log out", isChevron: false)
                 .onTapGesture {
-                    coordinator.popToRoot()
+                    coordinator.authManager.logOff()
                 }
         }
     }

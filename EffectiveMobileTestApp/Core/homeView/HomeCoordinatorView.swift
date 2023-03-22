@@ -27,6 +27,6 @@ struct HomeCoordinatorView: View {
 
 struct HomeCoordinatorView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeCoordinatorView(coordinator: HomeCoordinator())
+        HomeCoordinatorView(coordinator: dev.coordinator.homeCoordinator)
     }
 }

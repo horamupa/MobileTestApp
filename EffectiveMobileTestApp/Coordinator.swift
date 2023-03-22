@@ -8,13 +8,12 @@
 import SwiftUI
 
 class Coordinator: ObservableObject {
-//    @Published var path = NavigationPath()
-//    @Published var authPath = NavigationPath()
+    @Published var path = NavigationPath()
     @Published var homeCoordinator: HomeCoordinator!
-//    @Published var sheet: Sheet?
-//    @Published var fullScreenCover: FullScreenCover?
+    @Published var sheet: Sheet?
+    @Published var fullScreenCover: FullScreenCover?
     //Services Init
-    var dataManager: any DataServiceProtocol
+    var dataManager: DataService
     var authManager: AuthService
     
     init(dataManager: DataService, authManager: AuthService) {
@@ -48,9 +47,9 @@ class Coordinator: ObservableObject {
 //        self.sheet = nil
 //    }
 //
-//    func dismissFullScreenCover() {
-//        self.fullScreenCover = nil
-//    }
+    func dismissFullScreenCover() {
+        self.fullScreenCover = nil
+    }
 //
 //    @ViewBuilder
 //    func build(page: Page) -> some View {
@@ -95,26 +94,26 @@ class Coordinator: ObservableObject {
 //    }
 }
 
-//enum Page: String, Identifiable {
-//    case none
-//
-//    var id: String {
-//        self.rawValue
-//    }
-//}
-//
-//enum Sheet: String, Identifiable {
-//    case none
-//
-//    var id: String {
-//        self.rawValue
-//    }
-//}
-//
-//enum FullScreenCover: String, Identifiable {
-//    case none
-//
-//    var id: String {
-//        self.rawValue
-//    }
-//}
+enum Page: String, Identifiable {
+    case none
+
+    var id: String {
+        self.rawValue
+    }
+}
+
+enum Sheet: String, Identifiable {
+    case none
+
+    var id: String {
+        self.rawValue
+    }
+}
+
+enum FullScreenCover: String, Identifiable {
+    case none
+
+    var id: String {
+        self.rawValue
+    }
+}

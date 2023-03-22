@@ -52,8 +52,8 @@ extension AuthView {
             Button {
                 if !vm.firstName.isEmpty && !vm.lastName.isEmpty &&  isEmailValid {
                     if AuthService.shared.signIn(email: vm.email, password: vm.firstName+vm.lastName) {
-                        coordinator.push(.tabBarView)
                         coordinator.authManager.setUser(email: vm.email, password: vm.firstName+vm.lastName)
+                        coordinator.dismissFullScreenCover()
                         }
                 } else {
                     if AuthService.shared.checkName(email: vm.email) {
