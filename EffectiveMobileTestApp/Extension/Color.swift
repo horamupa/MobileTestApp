@@ -53,6 +53,9 @@ struct ColorTheme {
     let lightGray2 = Color("LightGray2")
     let middleGray = Color("middleGray")
     let discountColor = Color("discountColor")
+    let darkBlue = Color("darkBlue")
+    let menuBlue = Color("menuBlue")
+    let menuBlue2 = Color("menuBlue2")
 }
 
 extension UIColor {

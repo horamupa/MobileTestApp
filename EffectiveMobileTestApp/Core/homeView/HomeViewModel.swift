@@ -16,6 +16,7 @@ class HomeViewModel: ObservableObject {
     @Published var selectedOptions: ShopFilterOptions = .phones
     @Published var isSelectedOption: ShopFilterOptions? = nil
     @Published var searchText: String = ""
+    @Published var isAllDataFetched: Bool = false
     private var cancellables = Set<AnyCancellable>()
     var dataManager: DataService
     
@@ -23,7 +24,7 @@ class HomeViewModel: ObservableObject {
         self.dataManager = dataManager
         getLatest()
         getFlashSale()
-        
+        checkFullLoading()
     }
     
 //    private func addSearchFilter() {
@@ -83,6 +84,22 @@ class HomeViewModel: ObservableObject {
                }
             .sink { value in
                 self.saleFiltred = value
+            }
+            .store(in: &cancellables)
+    }
+    
+    func checkFullLoading() {
+        $latest
+            .combineLatest($flashSale)
+            .map { (latest, flashSale) -> Bool in
+                if !latest.isEmpty && !flashSale.isEmpty {
+                    return true
+                }
+                else {
+                    return false }
+                }
+            .sink { value in
+                self.isAllDataFetched = value
             }
             .store(in: &cancellables)
     }

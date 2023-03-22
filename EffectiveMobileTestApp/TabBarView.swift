@@ -9,43 +9,32 @@ import SwiftUI
 
 struct TabBarView: View {
     @EnvironmentObject var coordinator: Coordinator
-    @State var tabSelection: TabBarItem = .home
+//    @State var tabSelection: TabBarItem = .home
 
     var body: some View {
     
-        CustomTabBarContainerView(selection: $tabSelection) {
+        CustomTabBarContainerView(selection: $coordinator.tabSelection) {
             HomeCoordinatorView(coordinator: coordinator.homeCoordinator)
-                .tabBarItem(tab: .home, selection: $tabSelection)
+                .tabBarItem(tab: .home, selection: $coordinator.tabSelection)
                 .tag(TabBarItem.home)
             HeartView()
-                .tabBarItem(tab: .heart, selection: $tabSelection)
+                .tabBarItem(tab: .heart, selection: $coordinator.tabSelection)
                 .tag(TabBarItem.heart)
             CartView()
-                .tabBarItem(tab: .cart, selection: $tabSelection)
+                .tabBarItem(tab: .cart, selection: $coordinator.tabSelection)
                 .tag(TabBarItem.cart)
             DialogView()
-                .tabBarItem(tab: .dialog, selection: $tabSelection)
+                .tabBarItem(tab: .dialog, selection: $coordinator.tabSelection)
                 .tag(TabBarItem.dialog)
             NavigationView {
                 ProfileView()
             }
-            .tabBarItem(tab: .profile, selection: $tabSelection)
+            .tabBarItem(tab: .profile, selection: $coordinator.tabSelection)
             .tag(TabBarItem.profile)
-            
         }
-        .fullScreenCover(isPresented: $coordinator.authManager.isUserNil) {
-            AuthView()
-        }
-        /*
-        VStack {
-            Text("FullScreenCoverView")
-            Button {
-                coordinator.dismissFullScreenCover()
-            } label: {
-                Text("DismissFullScreenCover")
-            }
-        }
-         */
+//        .fullScreenCover(isPresented: $coordinator.authManager.isUserNil) {
+//            AuthView()
+//        }
     }
 }
 

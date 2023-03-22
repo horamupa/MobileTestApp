@@ -12,6 +12,7 @@ class Coordinator: ObservableObject {
     @Published var homeCoordinator: HomeCoordinator!
     @Published var sheet: Sheet?
     @Published var fullScreenCover: FullScreenCover?
+    @Published var tabSelection: TabBarItem = .home
     //Services Init
     var dataManager: DataService
     var authManager: AuthService
@@ -20,6 +21,10 @@ class Coordinator: ObservableObject {
         self.dataManager = dataManager
         self.authManager = authManager
         self.homeCoordinator = HomeCoordinator(mainCoordinator: self)
+    }
+    
+    func changeTab(_ tab: TabBarItem) {
+        self.tabSelection = tab
     }
     
 //

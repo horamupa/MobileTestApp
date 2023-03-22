@@ -20,10 +20,13 @@ struct CustomTabBarContainerView<Content: View>: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            ZStack {
+            ZStack(alignment: .bottom) {
                 content
+                    .ignoresSafeArea()
+                layoutNavBarFix
+                CustomTabBarItem(tabs: tabs, selection: $selection)
+                    .cornerRadius(30, corners: [.topRight, .topLeft])
             }
-            CustomTabBarItem(tabs: tabs, selection: $selection)
         }
         .onPreferenceChange(TabBarItemPreferenceKey.self) { value in
             self.tabs = value
@@ -34,7 +37,16 @@ struct CustomTabBarContainerView<Content: View>: View {
 struct CustomTabBarContainerView_Previews: PreviewProvider {
     static var previews: some View {
         CustomTabBarContainerView(selection: .constant(dev.tabs.first!)) {
-            Color.red
+            Color.clear
         }
+    }
+}
+
+extension CustomTabBarContainerView {
+    private var layoutNavBarFix: some View {
+        Color.white
+            .frame(height: 80)
+            .offset(y: 40)
+            .ignoresSafeArea(edges: .bottom)
     }
 }

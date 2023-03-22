@@ -23,9 +23,13 @@ struct HomeView: View {
             VStack {
                 searchView
                 filtersView
-                latestView
-                flashSaleView
-                brandsView
+                if vm.isAllDataFetched {
+                    latestView
+                    flashSaleView
+                    brandsView
+                } else {
+                    ProgressView()
+                }
             }
             .padding(.horizontal, 8)
             .navigationBarTitleDisplayMode(.inline)
@@ -114,11 +118,13 @@ extension HomeView {
                     .foregroundColor(Color.theme.middleGray)
             }
             .padding(.top, 8)
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHGrid(rows: latestGrid) {
-                    if (vm.isSelectedOption != nil && vm.latestFiltred.isEmpty) {
-                        LatestEmptyView()
-                    } else {
+            if (vm.isSelectedOption != nil && vm.latestFiltred.isEmpty) {
+//                LatestEmptyView()
+                EmptyView()
+            } else {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHGrid(rows: latestGrid) {
+                        
                         ForEach(vm.isSelectedOption != nil ? vm.latestFiltred : vm.latest) { item in
                             LatestView(model: item)
                                 .onTapGesture {
@@ -126,28 +132,32 @@ extension HomeView {
                                 }
                         }
                     }
-                }
+                    
             }
-            .frame(height: 149)
+                .frame(height: 149)
+        }
         }
     }
     
     private var flashSaleView: some View {
         VStack(spacing: 8) {
-            HStack {
-                Text("Flash sale")
-                    .font(.mantserrat(.semibold, size: 16))
-                Spacer()
-                Text("View all")
-                    .font(.mantserrat(.regular, size: 13))
-                    .foregroundColor(Color.theme.middleGray)
-            }
-            .padding(.top, 8)
+            
+            if (vm.isSelectedOption != nil && vm.saleFiltred.isEmpty) {
+//                        SalesEmptyView()
+                EmptyView()
+            } else {
+                HStack {
+                    Text("Flash sale")
+                        .font(.mantserrat(.semibold, size: 16))
+                    Spacer()
+                    Text("View all")
+                        .font(.mantserrat(.regular, size: 13))
+                        .foregroundColor(Color.theme.middleGray)
+                }
+                .padding(.top, 8)
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: saleGrid) {
-                    if (vm.isSelectedOption != nil && vm.saleFiltred.isEmpty) {
-                        SalesEmptyView()
-                    } else {
+                    
                         ForEach(vm.isSelectedOption != nil ? vm.saleFiltred : vm.flashSale) { item in
                             Button {
                                 coordinator.push(.productView)
@@ -156,35 +166,36 @@ extension HomeView {
                             }
                         }
                     }
-//                    .frame(width: UIScreen.main.bounds.width / 2 - 14)
                 }
-            }
             .frame(height: 221)
+            }
         }
     }
     
     private var brandsView: some View {
         VStack(spacing: 8) {
-            HStack {
-                Text("Brands")
-                    .font(.mantserrat(.semibold, size: 16))
-                Spacer()
-                Text("View all")
-                    .font(.mantserrat(.regular, size: 13))
-                    .foregroundColor(Color.theme.middleGray)
-            }
-            .padding(.top, 8)
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHGrid(rows: latestGrid) {
-                    ForEach(vm.latest) { item in
-                        LatestView(model: item)
-                            .onTapGesture {
-                                coordinator.push(.productView)
-                            }
+            if vm.isSelectedOption == nil {
+                HStack {
+                    Text("Brands")
+                        .font(.mantserrat(.semibold, size: 16))
+                    Spacer()
+                    Text("View all")
+                        .font(.mantserrat(.regular, size: 13))
+                        .foregroundColor(Color.theme.middleGray)
+                }
+                .padding(.top, 8)
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHGrid(rows: latestGrid) {
+                        ForEach(vm.latest) { item in
+                            LatestView(model: item)
+                                .onTapGesture {
+                                    coordinator.push(.productView)
+                                }
+                        }
                     }
                 }
+                .frame(height: 149)
             }
-            .frame(height: 149)
         }
     }
 }

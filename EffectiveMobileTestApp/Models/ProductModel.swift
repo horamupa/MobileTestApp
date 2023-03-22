@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ProductModel: Codable {
     let name, description: String
-    let rating: Double
-    let numberOfReviews, price: Int
+    let rating, price: Double
+    let numberOfReviews: Int
     let colors: [String]
     let imageUrls: [String]
 
@@ -21,7 +21,7 @@ struct ProductModel: Codable {
         case imageUrls = "image_urls"
     }
     
-    static let shared = ProductModel(name: "Reebok Classic", description: "Shoes inspired by 80s running shoes are still relevant today", rating: 4.3, numberOfReviews: 4000, price: 24, colors: [
+    static let shared = ProductModel(name: "Reebok Classic", description: "Shoes inspired by 80s running shoes are still relevant today", rating: 4.3, price: 24, numberOfReviews: 4000, colors: [
         "#ffffff",
         "#b5b5b5",
         "#000000"

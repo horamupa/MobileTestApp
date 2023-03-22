@@ -17,11 +17,11 @@ struct SalesView: View {
                 .frame(width: UIScreen.main.bounds.width / 2 - 14)
                 .clipped()
                 .cornerRadius(10)
-            HStack(alignment: .bottom) {
+            HStack(alignment: .bottom, spacing: 0) {
                 VStack(alignment: .leading) {
                     Image("shopImage")
                     Spacer()
-                    VStack {
+                    VStack(alignment: .leading) {
                         Text(model.category)
                             .font(.mantserrat(.semibold, size: 14))
                             .foregroundColor(Color.black)
@@ -31,14 +31,16 @@ struct SalesView: View {
                             .cornerRadius(10)
                             .tracking(-0.5)
                         Text(model.name)
-                            .font(.mantserrat(.bold, size: 16))
+                            .font(.mantserrat(.semibold, size: 16))
                             .foregroundColor(.white)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                             .minimumScaleFactor(0.9)
-                            .lineLimit(2, reservesSpace: true)
+                            .lineLimit(2)
                         Text("$" + "\(model.price)")
-                            .font(.mantserrat(.bold, size: 16))
+                            .font(.mantserrat(.bold, size: 14))
                             .foregroundColor(.white)
                     }
+                    .multilineTextAlignment(.leading)
                     .shadow(color: .black.opacity(0.5), radius: 2, x: 0, y: 0)
                 }
                 .padding(.leading, 4)
