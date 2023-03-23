@@ -39,7 +39,7 @@
 		8D7BE2B629C0B27800CDE9A8 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BE2B529C0B27800CDE9A8 /* AuthService.swift */; };
 		8D7BE2BA29C0B36800CDE9A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BE2B929C0B36800CDE9A8 /* User.swift */; };
 		8D7BE2BC29C0B92D00CDE9A8 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BE2BB29C0B92D00CDE9A8 /* Array.swift */; };
-		8D7BE2C229C0CE5200CDE9A8 /* CustomTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BE2C129C0CE5200CDE9A8 /* CustomTabBarItem.swift */; };
+		8D7BE2C229C0CE5200CDE9A8 /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BE2C129C0CE5200CDE9A8 /* CustomTabBarView.swift */; };
 		8D7BE2C429C0D5A800CDE9A8 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BE2C329C0D5A800CDE9A8 /* TabBarItem.swift */; };
 		8D7BE2C629C0DCBD00CDE9A8 /* CustomTabBarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BE2C529C0DCBD00CDE9A8 /* CustomTabBarContainerView.swift */; };
 		8D7BE2C829C0EBBB00CDE9A8 /* ProfileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BE2C729C0EBBB00CDE9A8 /* ProfileRow.swift */; };
@@ -61,6 +61,9 @@
 		8DDA0F1729C4C03D0048E2B8 /* CoorTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDA0F1629C4C03D0048E2B8 /* CoorTabbar.swift */; };
 		8DE1A75A29C8A56C0042EA17 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE1A75929C8A56C0042EA17 /* HomeCoordinator.swift */; };
 		8DE1A75C29C8B1310042EA17 /* HomeCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE1A75B29C8B1310042EA17 /* HomeCoordinatorView.swift */; };
+		8DF4B36B29CB91DD009F546B /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4B36A29CB91DD009F546B /* UserService.swift */; };
+		8DF4B36D29CB950D009F546B /* SUImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4B36C29CB950D009F546B /* SUImagePickerView.swift */; };
+		8DF4B36F29CC5D51009F546B /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4B36E29CC5D51009F546B /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,7 +101,7 @@
 		8D7BE2B529C0B27800CDE9A8 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		8D7BE2B929C0B36800CDE9A8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8D7BE2BB29C0B92D00CDE9A8 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
-		8D7BE2C129C0CE5200CDE9A8 /* CustomTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarItem.swift; sourceTree = "<group>"; };
+		8D7BE2C129C0CE5200CDE9A8 /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
 		8D7BE2C329C0D5A800CDE9A8 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		8D7BE2C529C0DCBD00CDE9A8 /* CustomTabBarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarContainerView.swift; sourceTree = "<group>"; };
 		8D7BE2C729C0EBBB00CDE9A8 /* ProfileRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRow.swift; sourceTree = "<group>"; };
@@ -120,6 +123,9 @@
 		8DDA0F1629C4C03D0048E2B8 /* CoorTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoorTabbar.swift; sourceTree = "<group>"; };
 		8DE1A75929C8A56C0042EA17 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		8DE1A75B29C8B1310042EA17 /* HomeCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinatorView.swift; sourceTree = "<group>"; };
+		8DF4B36A29CB91DD009F546B /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		8DF4B36C29CB950D009F546B /* SUImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUImagePickerView.swift; sourceTree = "<group>"; };
+		8DF4B36E29CC5D51009F546B /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +142,7 @@
 		8D091A7629C21A5000101C2C /* TabBarView */ = {
 			isa = PBXGroup;
 			children = (
-				8D7BE2C129C0CE5200CDE9A8 /* CustomTabBarItem.swift */,
+				8D7BE2C129C0CE5200CDE9A8 /* CustomTabBarView.swift */,
 				8D7BE2C529C0DCBD00CDE9A8 /* CustomTabBarContainerView.swift */,
 				8D7BE2C329C0D5A800CDE9A8 /* TabBarItem.swift */,
 				8D091A6E29C2124E00101C2C /* TabBarItemPreferenceKey.swift */,
@@ -234,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				8D44E92D29C068A2003C328C /* ProfileView.swift */,
+				8DF4B36E29CC5D51009F546B /* ProfileViewModel.swift */,
 			);
 			path = ProfileView;
 			sourceTree = "<group>";
@@ -249,6 +256,7 @@
 		8D44E93229C0693C003C328C /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				8DF4B36C29CB950D009F546B /* SUImagePickerView.swift */,
 				8D091A7029C2142D00101C2C /* HeartView.swift */,
 				8D091A7229C2146800101C2C /* CartView.swift */,
 				8D091A7429C214A100101C2C /* DialogView.swift */,
@@ -295,6 +303,7 @@
 				8D7BE2B529C0B27800CDE9A8 /* AuthService.swift */,
 				8DDA0F0E29C47B570048E2B8 /* DataServices.swift */,
 				8DC33BBD29C9DECD00F45AF7 /* ImageDownloadService.swift */,
+				8DF4B36A29CB91DD009F546B /* UserService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -401,6 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D44E93E29C07853003C328C /* PreviewProvider.swift in Sources */,
+				8DF4B36D29CB950D009F546B /* SUImagePickerView.swift in Sources */,
 				8D091A7329C2146800101C2C /* CartView.swift in Sources */,
 				8D44E95329C08377003C328C /* View.swift in Sources */,
 				8D091A7129C2142D00101C2C /* HeartView.swift in Sources */,
@@ -420,14 +430,16 @@
 				8DC33BC629CB7A1E00F45AF7 /* CornerRadius.swift in Sources */,
 				8D7BE2BC29C0B92D00CDE9A8 /* Array.swift in Sources */,
 				8D44E93C29C07853003C328C /* Fonts.swift in Sources */,
-				8D7BE2C229C0CE5200CDE9A8 /* CustomTabBarItem.swift in Sources */,
+				8D7BE2C229C0CE5200CDE9A8 /* CustomTabBarView.swift in Sources */,
 				8DC33BC029CA2B5100F45AF7 /* ProductModel.swift in Sources */,
+				8DF4B36B29CB91DD009F546B /* UserService.swift in Sources */,
 				8D44E93629C06966003C328C /* TabBarView.swift in Sources */,
 				8DDA0F1529C47E9F0048E2B8 /* HomeViewModel.swift in Sources */,
 				8D7BE2C629C0DCBD00CDE9A8 /* CustomTabBarContainerView.swift in Sources */,
 				8DDA0F0B29C470C80048E2B8 /* SalesView.swift in Sources */,
 				8D44E95129C07ACC003C328C /* AuthViewModel.swift in Sources */,
 				8DDA0F1329C47E170048E2B8 /* FlashSaleModel.swift in Sources */,
+				8DF4B36F29CC5D51009F546B /* ProfileViewModel.swift in Sources */,
 				8DDA0F0D29C47B380048E2B8 /* NetworkingManager.swift in Sources */,
 				8D7BE2BA29C0B36800CDE9A8 /* User.swift in Sources */,
 				8DC33BBA29C9DE2A00F45AF7 /* AsyncImageView.swift in Sources */,

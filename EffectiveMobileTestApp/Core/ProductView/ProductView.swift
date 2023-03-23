@@ -18,22 +18,25 @@ struct ProductView: View {
 
     init(model: ProductModel) {
         self.model = model
-//        self.finalPrice = Double(model.price)
     }
     
     var body: some View {
-        VStack {
+        ZStack {
+            Color.theme.background
+                .ignoresSafeArea()
             VStack {
-                imageSection
-                imagePreviewSection
-                infoSection
+                VStack {
+                    imageSection
+                    imagePreviewSection
+                    infoSection
+                }
+                .ignoresSafeArea()
+                
+                Spacer()
+                bottomSection
             }
-            .ignoresSafeArea()
-            
-            Spacer()
-            bottomSection
+            .navigationBarBackButtonHidden()
         }
-        .navigationBarBackButtonHidden()
 //        .toolbar {
 //            ToolbarItem(placement: .navigationBarLeading) {
 //
@@ -221,9 +224,9 @@ extension ProductView {
     }
     
     private var bottomSection: some View {
-        ZStack {
+        ZStack(alignment: .top) {
             RoundedRectangle(cornerRadius: 20)
-                .frame(height: 100)
+                .frame(height: 160)
                 .foregroundColor(Color.theme.darkBlue)
             HStack {
                 VStack(alignment: .leading) {
@@ -238,6 +241,7 @@ extension ProductView {
                 Spacer()
                 addToCartButton
             }
+            .padding(.top, 25)
             .padding(.horizontal, 30)
         }
     }

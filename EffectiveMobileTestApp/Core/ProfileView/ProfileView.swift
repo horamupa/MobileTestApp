@@ -6,34 +6,45 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ProfileView: View {
     @EnvironmentObject private var coordinator: Coordinator
-    @Environment(\.dismiss) var dismiss
+    @StateObject var vm: ProfileViewModel
+    
     var body: some View {
-//        NavigationView {
+        ZStack {
+            Color.theme.background
+                .ignoresSafeArea()
+            
             ScrollView {
-                VStack(spacing: 16) {
-                    photoUploadView
-                    profileRowsView
+                
+                    VStack(spacing: 16) {
+                        
+                        photoUploadView
+                        Text((coordinator.userManager.userImage != nil) ? "GotImage" : "No image")
+                        profileRowsView
+                    }
+                }
+                .padding(.horizontal, 32)
+                .navigationTitle("Profile")
+                .navigationBarTitleDisplayMode(.inline)
+                .scrollIndicators(.hidden)
+        }
+        .fullScreenCover(isPresented: $vm.isImagePicker, content: {
+            SUImagePickerView(image: $vm.profileImage, isPresented: $vm.isImagePicker)
+        })
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        coordinator.tabSelection = .home
+                    } label: {
+                        Image(systemName: "arrow.left")
+                            .bold()
+                            .foregroundColor(Color.black)
+                    }
                 }
             }
-            .padding(.horizontal, 32)
-            .navigationTitle("Profile")
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden(false)
-            .scrollIndicators(.hidden)
-//            .toolbar {
-//                ToolbarItem(placement: .navigationBarLeading) {
-//                    Button {
-//                        dismiss
-//                    } label: {
-//                        Image(systemName: "arrow.left")
-//                            .bold()
-//                            .foregroundColor(Color.black)
-//                    }
-//                }
-//            }
 //        }
             
     }
@@ -42,7 +53,8 @@ struct ProfileView: View {
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ProfileView()
+            ProfileView(vm: .init(userProfile: dev.coordinator.userManager))
+                .environmentObject(dev.coordinator)
         }
     }
 }
@@ -50,11 +62,29 @@ struct ProfileView_Previews: PreviewProvider {
 extension ProfileView {
     private var photoUploadView: some View {
         VStack {
-            Image("ProfilePhoto")
-            
-            Text("Change Photo")
-                .font(.caption)
-                .foregroundColor(Color.theme.middleGray)
+            if let image = vm.profileImage {
+                Image(uiImage: image)
+                    .resizable()
+                   .scaledToFill()
+                   .clipShape(Circle())
+                   .frame(width: 60, height: 60)
+            } else {
+                Image("ProfilePhoto")
+            }
+//            if let image = self.image {
+//                image
+//
+//            } else {
+//
+//            }
+            Button {
+                vm.isImagePicker.toggle()
+            } label: {
+                Text("Change Photo")
+                    .font(.caption)
+                    .foregroundColor(Color.theme.middleGray)
+            }
+
             Text("Satria Adhi Pradana")
                 .font(.mantserrat(.semibold, size: 18))
                 .padding(.top, 16)
@@ -90,10 +120,22 @@ extension ProfileView {
             ProfileRow(image: "CardLogo", text: "Trade history", isChevron: true)
             ProfileRow(image: "RestoreLogo", text: "Restore Purchase", isChevron: true)
             ProfileRow(image: "QuestionLogo", text: "Help", isChevron: true)
-            ProfileRow(image: "LogoutLogo", text: "Log out", isChevron: false)
-                .onTapGesture {
-                    coordinator.authManager.logOff()
-                }
+            Button {
+                coordinator.authManager.logOff()
+            } label: {
+                ProfileRow(image: "LogoutLogo", text: "Log out", isChevron: false)
+                    .foregroundColor(.black)
+            }
+        }
+    }
+    
+    private var backChevron: some View {
+        Button {
+            
+        } label: {
+            Image(systemName: "chevron.left")
+                .bold()
+                .foregroundColor(.black)
         }
     }
 }

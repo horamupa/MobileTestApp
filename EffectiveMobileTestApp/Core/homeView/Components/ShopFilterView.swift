@@ -17,8 +17,13 @@ struct ShopFilterView: View {
                     VStack {
                         ZStack {
                             Circle()
-                                .foregroundColor(Color.theme.lightGray)
+                                .foregroundColor(Color.theme.lightGray.opacity(vm.isSelectedOption == item ? 1 : 0))
                                 .frame(width: 42, height: 38)
+                                .shadow(
+                                    color: Color.theme.middleGray.opacity(0.1),
+                                    radius: 2,
+                                    x: 0,
+                                    y: 0)
                             Image(item.image)
                                 .resizable()
                                 .scaledToFit()

@@ -24,7 +24,7 @@ struct CustomTabBarContainerView<Content: View>: View {
                 content
                     .ignoresSafeArea()
                 layoutNavBarFix
-                CustomTabBarItem(tabs: tabs, selection: $selection)
+                CustomTabBarView(tabs: tabs, selection: $selection)
                     .cornerRadius(30, corners: [.topRight, .topLeft])
             }
         }

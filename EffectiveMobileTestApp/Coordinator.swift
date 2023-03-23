@@ -13,9 +13,13 @@ class Coordinator: ObservableObject {
     @Published var sheet: Sheet?
     @Published var fullScreenCover: FullScreenCover?
     @Published var tabSelection: TabBarItem = .home
+    //View Models
+    @Published var vmProfile: ProfileViewModel?
+    
     //Services Init
     var dataManager: DataService
     var authManager: AuthService
+    var userManager: UserService = UserService()
     
     init(dataManager: DataService, authManager: AuthService) {
         self.dataManager = dataManager
@@ -28,9 +32,9 @@ class Coordinator: ObservableObject {
     }
     
 //
-//    func push(_ page: Page ) {
-//        path.append(page)
-//    }
+    func push(_ page: Page ) {
+        path.append(page)
+    }
 //
 //    func sheet(_ sheet: Sheet) {
 //        self.sheet = sheet
@@ -40,9 +44,9 @@ class Coordinator: ObservableObject {
 //        self.fullScreenCover = fullScreenCover
 //    }
 //
-//    func pop() {
-//        self.path.removeLast()
-//    }
+    func pop() {
+        self.path.removeLast()
+    }
 //
 //    func popToRoot() {
 //        self.path.removeLast(path.count )
@@ -56,22 +60,14 @@ class Coordinator: ObservableObject {
         self.fullScreenCover = nil
     }
 //
-//    @ViewBuilder
-//    func build(page: Page) -> some View {
-//        switch page {
-//        case .authView:
-//            AuthView()
-//        case .tabBarView:
-//            TabBarView()
-//        case .homeView:
-//            HomeView()
-//        case .profileView:
-//            ProfileView()
-//        case .productView:
-//            ProductView()
-//        }
-//
-//    }
+    @ViewBuilder
+    func build(page: Page) -> some View {
+        switch page {
+        case .profile:
+            ProfileView(vm: ProfileViewModel(userProfile: self.userManager))
+        }
+
+    }
 //
 //    @ViewBuilder
 //    func present(sheet: Sheet) -> some View {
@@ -100,7 +96,7 @@ class Coordinator: ObservableObject {
 }
 
 enum Page: String, Identifiable {
-    case none
+    case profile
 
     var id: String {
         self.rawValue

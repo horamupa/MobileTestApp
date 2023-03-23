@@ -19,55 +19,59 @@ struct HomeView: View {
     
 //    private var isCustomNavBar: Bool { tabSelection == .home ? true : false }
     var body: some View {
-        ScrollView {
-            VStack {
-                searchView
-                filtersView
-                if vm.isAllDataFetched {
-                    latestView
-                    flashSaleView
-                    brandsView
-                } else {
-                    ProgressView()
+        ZStack {
+            Color.theme.background
+                .ignoresSafeArea()
+            ScrollView {
+                VStack {
+                    searchView
+                    filtersView
+                    if vm.isAllDataFetched {
+                        latestView
+                        flashSaleView
+                        brandsView
+                    } else {
+                        ProgressView()
+                    }
                 }
-            }
-            .padding(.horizontal, 8)
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden(true)
-            .toolbar {
-//                if isCustomNavBar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Image("MenuLogoSmall")
-                    }
-                    ToolbarItem(placement: .principal) {
-                        HStack {
-                            Text("Trade by")
-                            Text("Bata")
-                                .foregroundColor(Color.theme.fbBlue)
+                .padding(.horizontal, 8)
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarBackButtonHidden(true)
+                .toolbar {
+    //                if isCustomNavBar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Image("MenuLogoSmall")
                         }
-                        .font(.mantserrat(.bold, size: 24))
-                        .padding(.top, 6)
-                        
-                    }
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        VStack {
-                            Image("ProfilePhoto")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 24)
-                            HStack(spacing: 2) {
-                                Text("Location")
-                                Image(systemName: "chevron.down")
+                        ToolbarItem(placement: .principal) {
+                            HStack {
+                                Text("Trade by")
+                                Text("Bata")
+                                    .foregroundColor(Color.theme.fbBlue)
+                            }
+                            .font(.mantserrat(.bold, size: 24))
+                            .padding(.top, 6)
+                            
+                        }
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            VStack {
+                                Image("ProfilePhoto")
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: 5)
+                                    .frame(height: 24)
+                                HStack(spacing: 2) {
+                                    Text("Location")
+                                    Image(systemName: "chevron.down")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height: 5)
+                                }
+                                .font(.mantserrat(.regular, size: 13))
                             }
-                            .font(.mantserrat(.regular, size: 13))
+                            
                         }
-                        
                     }
-                }
-//        }
+    //        }
+            }
         }
     }
 }

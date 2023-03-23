@@ -9,7 +9,6 @@ import SwiftUI
 
 struct TabBarView: View {
     @EnvironmentObject var coordinator: Coordinator
-//    @State var tabSelection: TabBarItem = .home
 
     var body: some View {
     
@@ -27,7 +26,7 @@ struct TabBarView: View {
                 .tabBarItem(tab: .dialog, selection: $coordinator.tabSelection)
                 .tag(TabBarItem.dialog)
             NavigationView {
-                ProfileView()
+                ProfileView(vm: .init(userProfile: coordinator.userManager))
             }
             .tabBarItem(tab: .profile, selection: $coordinator.tabSelection)
             .tag(TabBarItem.profile)

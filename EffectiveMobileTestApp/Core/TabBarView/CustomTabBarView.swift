@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CustomTabBarItem: View {
+struct CustomTabBarView: View {
     
     var tabs: [TabBarItem]
     @Binding var selection: TabBarItem
@@ -46,12 +46,12 @@ struct CustomTabBarView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             Spacer()
-            CustomTabBarItem(tabs: dev.tabs, selection: .constant(dev.tabs.first!))
+            CustomTabBarView(tabs: dev.tabs, selection: .constant(dev.tabs.first!))
         }
     }
 }
 
-extension CustomTabBarItem {
+extension CustomTabBarView {
 
     private func tabView(tab: TabBarItem) -> some View {
         ZStack {
