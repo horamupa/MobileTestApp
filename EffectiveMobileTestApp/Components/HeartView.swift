@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HeartView: View {
     var body: some View {
-        Text("Hear View Itself")
+        Text("Hear View")
     }
 }
 

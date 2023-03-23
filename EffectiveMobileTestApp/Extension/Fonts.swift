@@ -42,7 +42,8 @@ extension Font {
     }
     
     static func mantserrat(_ type: MontserratFont, size: CGFloat = 26) -> Font {
-        return .custom(type.value, size: size)
+        return
+            .custom(type.value, size: size)
     }
 }
 

@@ -17,18 +17,17 @@ struct ProfileRow: View {
             ZStack {
                 Circle()
                     .foregroundColor(Color.theme.lightGray)
-                    .frame(height: 50)
+                    .frame(height: 40)
                 Image(image)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 23)
+                    .frame(height: 16)
             }
             Text(text)
-                .font(.mantserrat(.medium, size: 18))
+                .font(.mantserrat(.medium, size: 14))
             Spacer()
             if isChevron {
-                Image(systemName: "chevron.right")
-                    .bold()
+                Image("chevron.right")
             }
         }
     }

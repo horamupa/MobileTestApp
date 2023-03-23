@@ -13,15 +13,18 @@ struct AuthView: View {
     @StateObject var vm: AuthViewModel = AuthViewModel()
     @State var isNeedLogin: Bool = false
     @State var isShowPassword: Bool = false
-    @State var isEmailValid: Bool = true
     @State var isUserExist: Bool = false
     var authManager = AuthService.shared
     
     var body: some View {
-        if !isNeedLogin {
-            SignInView
-        } else {
-            LoginView
+        ZStack {
+            Color.theme.background
+                .ignoresSafeArea()
+            if !isNeedLogin {
+                SignInView
+            } else {
+                LoginView
+            }
         }
     }
 }
@@ -33,24 +36,11 @@ struct AuthView_Previews: PreviewProvider {
 }
 
 extension AuthView {
+    
     private var SignInLogIn: some View {
         VStack(alignment: .leading) {
-//            if let user = Auth {
-//                Text("\(user.user)")
-//                    .font(.title)
-//                    .padding()
-//                    .background(Color.blue)
-//                    .cornerRadius(20)
-//            } else {
-//                Text("No user in coor")
-//                    .font(.title)
-//                    .padding()
-//                    .background(Color.blue)
-//                    .cornerRadius(20)
-//            }
-//            Text("\(coordinator.authManager.user?.user)")
             Button {
-                if !vm.firstName.isEmpty && !vm.lastName.isEmpty &&  isEmailValid {
+                if !vm.firstName.isEmpty && !vm.lastName.isEmpty &&  vm.isEmailValid {
                     if AuthService.shared.signIn(email: vm.email, password: vm.firstName+vm.lastName) {
                         coordinator.authManager.setUser(email: vm.email, password: vm.firstName+vm.lastName)
                         coordinator.dismissFullScreenCover()
@@ -61,19 +51,11 @@ extension AuthView {
                     }
                 }
             } label: {
-                Text("Sign in")
-                    .font(.mantserrat(.semibold, size: 18))
-                    .frame(height: 46)
-                    .frame(maxWidth: .infinity)
-                    .foregroundColor(.white)
-                    .background {
-                        Color.theme.fbBlue
-                    }
-                    .cornerRadius(20)
+                ButtonView(text: "Sign in")
         }
             HStack {
                 Text("Already have an account?")
-                    .foregroundColor(Color.gray)
+                    .foregroundColor(Color.theme.middleGray)
                 Button {
                     isNeedLogin.toggle()
                 } label: {
@@ -81,42 +63,46 @@ extension AuthView {
                 }
                 Spacer()
             }
-            .font(.subheadline)
+            .font(.mantserrat(.medium, size: 10))
             .frame(maxWidth: .infinity)
         }
     }
+    
     
     private var LogInWithAppleGoogle: some View {
         VStack(spacing: 24) {
             Button {
                 
             } label: {
-                HStack {
+                HStack(spacing: 10) {
                     Image("GoogleLogo")
                     Text("Sign in with Google")
-                        .frame(width: 180)
+                        .font(.mantserrat(.medium, size: 12))
                 }
             }
 
             Button {
             } label: {
-                HStack {
+                HStack(spacing: 10) {
                     Image("AppleLogo")
+                        .padding(.trailing, 4)
                     Text("Sign in with Apple")
-                        .frame(width: 180)
+                        .font(.mantserrat(.medium, size: 12))
                 }
             }
 
         }
+        .foregroundColor(Color.black)
         .font(.mantserrat(.regular, size: 16))
-        .padding(.top, 32)
+        .padding(.top, 40)
     }
     
+    
     private var SignInView: some View {
-        VStack(spacing: 24) {
+        VStack(spacing: 35) {
             Text("Sign In")
-                .font(.mantserrat(.semibold, size:  24))
-                .padding(.bottom, 16)
+                .font(.mantserrat(.semibold, size:  25))
+                .padding(.bottom, 40)
             
             TextField("First name", text: $vm.firstName)
                 .authFieldView("First name")
@@ -124,19 +110,18 @@ extension AuthView {
                 .authFieldView("Last name")
             TextField("Email", text: $vm.email, onEditingChanged: { isChanged in
                 if !isChanged {
-                    if self.textFieldValidatorEmail(vm.email) {
-                        self.isEmailValid = true
+                    if vm.textFieldValidatorEmail(vm.email) {
+                        vm.isEmailValid = true
                     } else {
-                        self.isEmailValid = false
-                        self.vm.email = ""
+                        vm.isEmailValid = false
                     }
                 }
             })
                 .authFieldView("Email")
                 .overlay(content: {
-                    if !isEmailValid {
+                    if !vm.isEmailValid {
                         Capsule()
-                            .stroke(.red ,lineWidth: isEmailValid ? 0 : 2)
+                            .stroke(.red ,lineWidth: vm.isEmailValid ? 0 : 2)
                     }
                     if isUserExist {
                         Text("Email already taken")
@@ -153,11 +138,12 @@ extension AuthView {
         .padding(.horizontal, 32)
     }
     
+    
     private var LoginView: some View {
-        VStack(spacing: 24) {
-            Text("Log In")
-                .font(.mantserrat(.semibold, size:  24))
-                .padding(.bottom, 16)
+        VStack(spacing: 35) {
+            Text("Welcome back")
+                .font(.mantserrat(.semibold, size:  25))
+                .padding(.bottom, 40)
             
             TextField("First name", text: $vm.firstName)
                 .authFieldView("First name")
@@ -181,35 +167,31 @@ extension AuthView {
             
             logInButton
                 .padding(.top, 32)
+            
+            Button {
+                isNeedLogin.toggle()
+            } label: {
+                Text("Back to sign in")
+                    .font(.mantserrat(.regular, size:  14))
+                    .foregroundColor(Color.theme.middleGray)
+                    .padding(.bottom, 16)
+            }
+
+            
+            
         }
         .padding(.horizontal, 32)
     }
     
+    
     private var logInButton: some View {
         Button {
-            if AuthService.shared.login(email: vm.email, password: vm.password) {
-                AuthService.shared.setUser(email: vm.email, password: vm.password)
+            if coordinator.authManager.login(email: vm.email, password: vm.password) {
+                coordinator.authManager.setUser(email: vm.email, password: vm.password)
             }
         } label: {
-            Text("Log in")
-                .font(.mantserrat(.semibold, size: 18))
-                .frame(height: 46)
-                .frame(maxWidth: .infinity)
-                .foregroundColor(.white)
-                .background {
-                    Color.theme.fbBlue
-                }
-                .cornerRadius(20)
+            ButtonView(text: "Log in")
         }
-    }
-    
-    func textFieldValidatorEmail(_ string: String) -> Bool {
-        if string.count > 100 {
-            return false
-        }
-        let emailFormat = "[A-Z0-9a-z._%+-]"+"@[A-Za-z0-9.-]"+"\\.[A-Za-z]{2,64}"
-        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
-        return emailPredicate.evaluate(with: string)
     }
 }
 

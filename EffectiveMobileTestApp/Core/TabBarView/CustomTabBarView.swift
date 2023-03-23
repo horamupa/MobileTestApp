@@ -24,6 +24,7 @@ struct CustomTabBarView: View {
                     }
             }
             .padding(8)
+            .padding(.top, 8)
             .background {
                 Color.white.ignoresSafeArea(edges: .bottom)
             }
@@ -61,47 +62,17 @@ extension CustomTabBarView {
             Image(tab.image)
                 .padding(8)
                 .frame(maxWidth: .infinity)
+                .foregroundColor(selection == tab ? Color.theme.tabIconAccent : Color.clear)
         }
         .frame(height: 50)
     }
     
-//    private var tabView2: some View {
-//        ZStack {
-//            Circle()
-//                .frame(height: 45)
-//                .foregroundColor(selection == tab ? Color.theme.lightGray : .clear)
-//            Image(tab.image)
-//                .padding(8)
-//                .frame(maxWidth: .infinity)
-//        }
-//        .frame(height: 50)
-//    }
     
     private func switchToTab(tab: TabBarItem) {
         withAnimation(.easeInOut) {
             selection = tab
         }
     }
-    
-//    private var customTabBar1: some View {
-//        ZStack {
-//            HStack {
-//                ForEach(tabs, id: \.self) { tab in
-//                    tabView(tab: tab)
-//                        .onTapGesture {
-//                            switchToTab(tab: tab)
-//                        }
-//                }
-//            }
-//            .padding(8)
-//            .background(Color.white.ignoresSafeArea(edges: .bottom))
-//            .cornerRadius(20)
-////            Color.white
-////                .frame(height: 50)
-////                .offset(y: 50)
-//        }
-//        .ignoresSafeArea(edges: .bottom)
-//    }
 }
 
 

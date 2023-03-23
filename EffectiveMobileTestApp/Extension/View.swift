@@ -19,22 +19,15 @@ extension View {
         }
     }
     
-//    func placeholder(
-//        _ text: String,
-//        when shouldShow: Bool,
-//        alignment: Alignment = .center) -> some View {
-//
-//        placeholder(when: shouldShow, alignment: alignment) { Text(text).foregroundColor(.gray) }
-//    }
-    
     func authFieldView(_ text: String) -> some View {
         self
 //            .placeholder(text, when: true)
             .placeholder(when: text.isEmpty) {
-                Text("Placeholder recreated").foregroundColor(.gray)
+                Text("Placeholder recreated")
+                    .foregroundColor(Color.theme.middleGray)
             }
             .frame(height: 29)
-            .font(.mantserrat(.medium, size: 14))
+            .font(.mantserrat(.medium, size: 10))
             .background {
                 Color.theme.lightGray
             }

@@ -18,11 +18,8 @@ struct ProfileView: View {
                 .ignoresSafeArea()
             
             ScrollView {
-                
                     VStack(spacing: 16) {
-                        
                         photoUploadView
-                        Text((coordinator.userManager.userImage != nil) ? "GotImage" : "No image")
                         profileRowsView
                     }
                 }
@@ -71,22 +68,17 @@ extension ProfileView {
             } else {
                 Image("ProfilePhoto")
             }
-//            if let image = self.image {
-//                image
-//
-//            } else {
-//
-//            }
             Button {
                 vm.isImagePicker.toggle()
             } label: {
                 Text("Change Photo")
-                    .font(.caption)
+                    .font(.mantserrat(.regular, size: 8))
                     .foregroundColor(Color.theme.middleGray)
             }
 
             Text("Satria Adhi Pradana")
-                .font(.mantserrat(.semibold, size: 18))
+                .font(.mantserrat(.semibold, size: 16))
+                .foregroundColor(Color.theme.darkGray)
                 .padding(.top, 16)
             Button {
                 
@@ -97,7 +89,7 @@ extension ProfileView {
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
                     .background(Color.theme.fbBlue)
-                    .cornerRadius(20)
+                    .cornerRadius(15)
                     .overlay(alignment: .leading) {
                         Image("UploadLogo")
                             .frame(height: 18)
@@ -109,13 +101,13 @@ extension ProfileView {
     }
     
     private var profileRowsView: some View {
-        VStack(spacing: 24) {
+        VStack(spacing: 20) {
             ProfileRow(image: "CardLogo", text: "Trade store", isChevron: true)
             ProfileRow(image: "CardLogo", text: "Payment method", isChevron: true)
             ProfileRow(image: "CardLogo", text: "Balance", isChevron: false)
                 .overlay(alignment: .trailing) {
                     Text("$ 1593")
-                        .font(.mantserrat(.medium, size: 17))
+                        .font(.mantserrat(.medium, size: 14))
                 }
             ProfileRow(image: "CardLogo", text: "Trade history", isChevron: true)
             ProfileRow(image: "RestoreLogo", text: "Restore Purchase", isChevron: true)
@@ -127,6 +119,7 @@ extension ProfileView {
                     .foregroundColor(.black)
             }
         }
+        .padding(.bottom, 70)
     }
     
     private var backChevron: some View {
