@@ -15,7 +15,6 @@ struct CustomTabBarView: View {
     var body: some View {
         ZStack {
             HStack {
-//                Color.red
                 ForEach(tabs, id: \.self) { tab in
                     tabView(tab: tab)
                         .onTapGesture {
@@ -29,11 +28,7 @@ struct CustomTabBarView: View {
                 Color.white.ignoresSafeArea(edges: .bottom)
             }
         }
-        
-//        .ignoresSafeArea(edges: .bottom)
-//                    .background(Color.white.ignoresSafeArea(edges: .bottom))
         .background {
-//            Color.white.ignoresSafeArea(edges: .bottom)
             Color.white
                 .frame(height: 100)
                 .offset(y: 40)
@@ -69,9 +64,9 @@ extension CustomTabBarView {
     
     
     private func switchToTab(tab: TabBarItem) {
-        withAnimation(.easeInOut) {
+//        withAnimation(.easeInOut) {
             selection = tab
-        }
+//        }
     }
 }
 

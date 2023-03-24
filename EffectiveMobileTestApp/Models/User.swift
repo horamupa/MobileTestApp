@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct User: Equatable, Codable {
-    var user: String = ""
+    var email: String = ""
+    var name: String = ""
+    var surname: String = ""
     var password: String = ""
     
     static func ==(lhs: User, rhs: User) -> Bool {
-        return lhs.user == rhs.user && lhs.password == rhs.password
+        return lhs.email == rhs.email
     }
 }

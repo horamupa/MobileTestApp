@@ -54,6 +54,7 @@ struct ColorTheme {
     let menuBlue2 = Color("menuBlue2")
     let darkGray = Color("darkGray")
     let tabIconAccent = Color("tabIconAccent")
+    let productGray = Color("productGray")
 }
 
 extension UIColor {

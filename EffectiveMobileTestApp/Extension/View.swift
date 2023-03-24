@@ -31,6 +31,7 @@ extension View {
             .background {
                 Color.theme.lightGray
             }
+            .autocorrectionDisabled()
             .cornerRadius(20)
             .multilineTextAlignment(.center)
     }

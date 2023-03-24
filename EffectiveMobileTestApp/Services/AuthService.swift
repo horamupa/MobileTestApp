@@ -29,27 +29,33 @@ class AuthService: ObservableObject {
             .store(in: &cancellables)
     }
    
-    func setUser(email: String, password: String) {
-        user = User(user: email, password: password)
+    func setUser(email: String, name: String, surname: String, password: String) {
+        user = User(email: email, name: name, surname: surname, password: password)
     }
     
     func login(email: String, password: String) -> Bool {
         users.contains { user in
-            user == User(user: email, password: password)
+            user == User(email: email, password: password)
         }
     }
 
-    func signIn(email: String, password: String) -> Bool {
-        users.append(User(user: email, password: password))
-        setUser(email: email, password: password)
+    func signIn(email: String, name: String, surname: String, password: String) {
+        users.append(User(email: email, name: name, surname: surname, password: password))
+        setUser(email: email, name: name, surname: surname, password: password)
         saveUsers()
-        return true
     }
     
     func checkName(email: String) -> Bool {
         users.contains { user in
-            user.user == email
+            user.email == email
         }
+    }
+    
+    func checkUserInDatabase(email: String, password: String) {
+        let foundUser = users.first { user in
+            user.email == email && user.password == password
+        }
+        user = foundUser
     }
     
     func saveUsers() {

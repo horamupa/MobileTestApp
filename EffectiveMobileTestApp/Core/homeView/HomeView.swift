@@ -93,6 +93,7 @@ extension HomeView {
                 .placeholderCenter(when: vm.searchText.isEmpty, placeholder: {
                     Text("What are you looking for?").font(.mantserrat(.medium, size: 9)).foregroundColor(Color.theme.middleGray).tracking(-0.5)
                 })
+                .font(.mantserrat(.regular, size: 13))
                 .autocorrectionDisabled()
                 .padding(.vertical, 4)
                 .background(Color.theme.lightGray2)
@@ -104,6 +105,9 @@ extension HomeView {
                 }
                 .overlay(alignment: .leading, content: {
                     Image(systemName: "xmark")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 10, height: 10)
                         .foregroundColor(Color.theme.middleGray)
                         .padding(.leading, 10)
                         .opacity(vm.searchText.isEmpty ? 0 : 1)

@@ -184,7 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				8D44E91529C06440003C328C /* EffectiveMobileTestAppApp.swift */,
-				8DF4B37629CCE65E009F546B /* Coordinators */,
+				8DF4B37729CCE668009F546B /* MainTabCoordinator */,
 				8D44E92529C06850003C328C /* Core */,
 				8D7BE2B729C0B27C00CDE9A8 /* Services */,
 				8D7BE2B829C0B35400CDE9A8 /* Models */,
@@ -337,14 +337,6 @@
 				8DF4B37229CC7DD6009F546B /* SearchHintView.swift */,
 			);
 			path = HomeComponents;
-			sourceTree = "<group>";
-		};
-		8DF4B37629CCE65E009F546B /* Coordinators */ = {
-			isa = PBXGroup;
-			children = (
-				8DF4B37729CCE668009F546B /* MainTabCoordinator */,
-			);
-			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		8DF4B37729CCE668009F546B /* MainTabCoordinator */ = {

@@ -40,15 +40,23 @@ extension AuthView {
     private var SignInLogIn: some View {
         VStack(alignment: .leading) {
             Button {
-                if !vm.firstName.isEmpty && !vm.lastName.isEmpty &&  vm.isEmailValid {
-                    if AuthService.shared.signIn(email: vm.email, password: vm.firstName+vm.lastName) {
-                        coordinator.authManager.setUser(email: vm.email, password: vm.firstName+vm.lastName)
-                        coordinator.dismissFullScreenCover()
-                        }
-                } else {
-                    if AuthService.shared.checkName(email: vm.email) {
+                if vm.checkFieldInfo() {
+                    if coordinator.authManager.checkName(email: vm.email) {
                         isUserExist = true
+                    } else {
+                        coordinator.authManager.signIn(email: vm.email, name: vm.firstName, surname: vm.lastName, password: vm.password)
                     }
+//                    {
+                        
+//                    }
+//                    if AuthService.shared.signIn(email: vm.email, password: vm.firstName+vm.lastName) {
+//                        coordinator.authManager.setUser(email: vm.email, password: vm.firstName+vm.lastName)
+//                        coordinator.dismissFullScreenCover()
+//                        }
+//                } else {
+//                    if AuthService.shared.checkName(email: vm.email) {
+//                        isUserExist = true
+//                    }
                 }
             } label: {
                 ButtonView(text: "Sign in")
@@ -186,9 +194,7 @@ extension AuthView {
     
     private var logInButton: some View {
         Button {
-            if coordinator.authManager.login(email: vm.email, password: vm.password) {
-                coordinator.authManager.setUser(email: vm.email, password: vm.password)
-            }
+            coordinator.authManager.checkUserInDatabase(email: vm.email, password: vm.password)
         } label: {
             ButtonView(text: "Log in")
         }

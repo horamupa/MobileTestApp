@@ -31,9 +31,9 @@ struct TabBarView: View {
             .tabBarItem(tab: .profile, selection: $coordinator.tabSelection)
             .tag(TabBarItem.profile)
         }
-//        .fullScreenCover(isPresented: $coordinator.authManager.isUserNil) {
-//            AuthView()
-//        }
+        .fullScreenCover(isPresented: $coordinator.authManager.isUserNil) {
+            AuthView()
+        }
     }
 }
 

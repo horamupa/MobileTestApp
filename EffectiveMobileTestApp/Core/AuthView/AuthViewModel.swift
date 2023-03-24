@@ -14,16 +14,17 @@ class AuthViewModel: ObservableObject {
     @Published var password: String = ""
     @Published var isEmailValid: Bool = true
     
-//    func checkInformation() -> Bool {
-//        if 
-//    }
-    
-    func textFieldValidatorEmail(_ string: String) -> Bool {
-        if string.count > 100 {
-            return false
-        }
-        let emailFormat = "[A-Z0-9a-z._%+-]"+"@[A-Za-z0-9.-]"+"\\.[A-Za-z]{2,64}"
-        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
-        return emailPredicate.evaluate(with: string)
+    func checkFieldInfo() -> Bool {
+        if !firstName.isEmpty && !lastName.isEmpty && isEmailValid { return true }
+        else { return false }    
     }
+
+func textFieldValidatorEmail(_ string: String) -> Bool {
+    if string.count > 100 {
+        return false
+    }
+    let emailFormat = "[A-Z0-9a-z._%+-]"+"@[A-Za-z0-9.-]"+"\\.[A-Za-z]{2,64}"
+    let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
+    return emailPredicate.evaluate(with: string)
+}
 }

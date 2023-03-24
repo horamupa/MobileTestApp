@@ -13,7 +13,7 @@ struct SearchHintView: View {
     
     var body: some View {
         Text(text)
-            .font(.mantserrat(.regular, size: 16))
+            .font(.mantserrat(.regular, size: 14))
     }
 }
 
