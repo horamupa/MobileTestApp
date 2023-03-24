@@ -9,11 +9,16 @@ import SwiftUI
 
 struct AuthView: View {
     
-    @EnvironmentObject private var coordinator: Coordinator
-    @StateObject var vm: AuthViewModel = AuthViewModel()
+    var coordinator: Coordinator
+    @StateObject var vm: AuthViewModel
     @State var isNeedLogin: Bool = false
     @State var isShowPassword: Bool = false
-    @State var isUserExist: Bool = false
+    
+    init(coordinator: Coordinator) {
+        self.coordinator = coordinator
+        _vm = StateObject(wrappedValue: .init(coordinator: coordinator))
+    }
+    
     var authManager = AuthService.shared
     
     var body: some View {
@@ -31,7 +36,7 @@ struct AuthView: View {
 
 struct AuthView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthView(authManager: AuthService.shared)
+        AuthView(coordinator: dev.coordinator)
     }
 }
 
@@ -40,24 +45,7 @@ extension AuthView {
     private var SignInLogIn: some View {
         VStack(alignment: .leading) {
             Button {
-                if vm.checkFieldInfo() {
-                    if coordinator.authManager.checkName(email: vm.email) {
-                        isUserExist = true
-                    } else {
-                        coordinator.authManager.signIn(email: vm.email, name: vm.firstName, surname: vm.lastName, password: vm.password)
-                    }
-//                    {
-                        
-//                    }
-//                    if AuthService.shared.signIn(email: vm.email, password: vm.firstName+vm.lastName) {
-//                        coordinator.authManager.setUser(email: vm.email, password: vm.firstName+vm.lastName)
-//                        coordinator.dismissFullScreenCover()
-//                        }
-//                } else {
-//                    if AuthService.shared.checkName(email: vm.email) {
-//                        isUserExist = true
-//                    }
-                }
+                vm.signIn()
             } label: {
                 ButtonView(text: "Sign in")
         }
@@ -116,22 +104,14 @@ extension AuthView {
                 .authFieldView("First name")
             TextField("Last name", text: $vm.lastName)
                 .authFieldView("Last name")
-            TextField("Email", text: $vm.email, onEditingChanged: { isChanged in
-                if !isChanged {
-                    if vm.textFieldValidatorEmail(vm.email) {
-                        vm.isEmailValid = true
-                    } else {
-                        vm.isEmailValid = false
-                    }
-                }
-            })
+            TextField("Email", text: $vm.email)
                 .authFieldView("Email")
                 .overlay(content: {
                     if !vm.isEmailValid {
                         Capsule()
                             .stroke(.red ,lineWidth: vm.isEmailValid ? 0 : 2)
                     }
-                    if isUserExist {
+                    if vm.isEmailTaken {
                         Text("Email already taken")
                             .font(.subheadline)
                             .foregroundColor(.red)
@@ -153,8 +133,8 @@ extension AuthView {
                 .font(.mantserrat(.semibold, size:  25))
                 .padding(.bottom, 40)
             
-            TextField("First name", text: $vm.firstName)
-                .authFieldView("First name")
+            TextField("Email", text: $vm.email)
+                .authFieldView("Email")
             Group {
                 if isShowPassword {
                     TextField("Password", text: $vm.password)
@@ -194,7 +174,7 @@ extension AuthView {
     
     private var logInButton: some View {
         Button {
-            coordinator.authManager.checkUserInDatabase(email: vm.email, password: vm.password)
+            vm.logIn()
         } label: {
             ButtonView(text: "Log in")
         }

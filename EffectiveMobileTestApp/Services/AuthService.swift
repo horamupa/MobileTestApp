@@ -29,8 +29,9 @@ class AuthService: ObservableObject {
             .store(in: &cancellables)
     }
    
-    func setUser(email: String, name: String, surname: String, password: String) {
-        user = User(email: email, name: name, surname: surname, password: password)
+    func setUser(user: User) {
+        self.user = user
+        print("User Setted")
     }
     
     func login(email: String, password: String) -> Bool {
@@ -41,21 +42,24 @@ class AuthService: ObservableObject {
 
     func signIn(email: String, name: String, surname: String, password: String) {
         users.append(User(email: email, name: name, surname: surname, password: password))
-        setUser(email: email, name: name, surname: surname, password: password)
+        print("user appended")
+        user = users.last
+        isUserNil = false
+        print(isUserNil)
         saveUsers()
     }
     
-    func checkName(email: String) -> Bool {
+    func isEmailTaken(email: String) -> Bool {
         users.contains { user in
             user.email == email
         }
     }
     
-    func checkUserInDatabase(email: String, password: String) {
-        let foundUser = users.first { user in
+    func setUserFromDatabase(email: String, password: String) {
+        let myUser = users.first { user in
             user.email == email && user.password == password
         }
-        user = foundUser
+        self.user = myUser
     }
     
     func saveUsers() {
@@ -77,5 +81,6 @@ class AuthService: ObservableObject {
     
     func logOff() {
         user = nil
+        isUserNil = true
     }
 }

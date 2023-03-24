@@ -32,7 +32,7 @@ struct TabBarView: View {
             .tag(TabBarItem.profile)
         }
         .fullScreenCover(isPresented: $coordinator.authManager.isUserNil) {
-            AuthView()
+            AuthView(coordinator: coordinator)
         }
     }
 }

@@ -70,15 +70,15 @@ class HomeCoordinator: ObservableObject {
         }
     }
     
-    @ViewBuilder
-    func presentFull(fullScreenCover: HomeFullScreenCover) -> some View {
-        switch fullScreenCover {
-        case .none:
-            NavigationStack {
-                AuthView()
-            }
-        }
-    }
+//    @ViewBuilder
+//    func presentFull(fullScreenCover: HomeFullScreenCover) -> some View {
+//        switch fullScreenCover {
+//        case .none:
+//            NavigationStack {
+//                AuthView()
+//            }
+//        }
+//    }
 }
 
 enum HomePages: String, Identifiable {

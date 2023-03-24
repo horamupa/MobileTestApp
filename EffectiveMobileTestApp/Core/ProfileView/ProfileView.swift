@@ -42,8 +42,6 @@ struct ProfileView: View {
                     }
                 }
             }
-//        }
-            
     }
 }
 
@@ -114,6 +112,7 @@ extension ProfileView {
             ProfileRow(image: "QuestionLogo", text: "Help", isChevron: true)
             Button {
                 coordinator.authManager.logOff()
+                coordinator.fullScreenCover(.authView)
             } label: {
                 ProfileRow(image: "LogoutLogo", text: "Log out", isChevron: false)
                     .foregroundColor(.black)

@@ -21,7 +21,6 @@ extension View {
     
     func authFieldView(_ text: String) -> some View {
         self
-//            .placeholder(text, when: true)
             .placeholder(when: text.isEmpty) {
                 Text("Placeholder recreated")
                     .foregroundColor(Color.theme.middleGray)

@@ -15,7 +15,7 @@ class Coordinator: ObservableObject {
     @Published var tabSelection: TabBarItem = .home
     //View Models
     @Published var vmProfile: ProfileViewModel?
-    
+    @Published var vmAuth: AuthViewModel?
     //Services Init
     var dataManager: DataService
     var authManager: AuthService
@@ -28,6 +28,7 @@ class Coordinator: ObservableObject {
     }
     
     func changeTab(_ tab: TabBarItem) {
+//        path.append(tab)
         self.tabSelection = tab
     }
     
@@ -40,10 +41,10 @@ class Coordinator: ObservableObject {
 //        self.sheet = sheet
 //    }
 //
-//    func fullScreenCover(_ fullScreenCover: FullScreenCover) {
-//        self.fullScreenCover = fullScreenCover
-//    }
-//
+    func fullScreenCover(_ fullScreenCover: FullScreenCover) {
+        self.fullScreenCover = fullScreenCover
+    }
+
     func pop() {
         self.path.removeLast()
     }
@@ -79,20 +80,16 @@ class Coordinator: ObservableObject {
 //        }
 //    }
 //
-//    @ViewBuilder
-//    func presentFull(fullScreenCover: FullScreenCover) -> some View {
-//        switch fullScreenCover {
-//        case .profileView:
-//            NavigationStack {
-//                AuthView()
-//            }
-//        case .authView:
-//            NavigationStack {
-//                AuthView()
-//            }
-//        }
-//
-//    }
+    @ViewBuilder
+    func presentFull(fullScreenCover: FullScreenCover) -> some View {
+        switch fullScreenCover {
+        case .authView:
+            NavigationStack {
+                AuthView(coordinator: self)
+            }
+        }
+
+    }
 }
 
 enum Page: String, Identifiable {
@@ -112,7 +109,7 @@ enum Sheet: String, Identifiable {
 }
 
 enum FullScreenCover: String, Identifiable {
-    case none
+    case authView
 
     var id: String {
         self.rawValue
