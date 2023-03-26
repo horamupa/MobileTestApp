@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct EffectiveMobileTestAppApp: App {
+struct MobileTestAppApp: App {
     
     @StateObject var coordinator: Coordinator = Coordinator(dataManager: DataService(), authManager: AuthService())
     

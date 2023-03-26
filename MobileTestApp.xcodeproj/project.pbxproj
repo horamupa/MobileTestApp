@@ -12,7 +12,7 @@
 		8D091A7329C2146800101C2C /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D091A7229C2146800101C2C /* CartView.swift */; };
 		8D091A7529C214A100101C2C /* DialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D091A7429C214A100101C2C /* DialogView.swift */; };
 		8D091A8329C31F5700101C2C /* CustomNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D091A8229C31F5700101C2C /* CustomNavBarView.swift */; };
-		8D44E91629C06440003C328C /* EffectiveMobileTestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D44E91529C06440003C328C /* EffectiveMobileTestAppApp.swift */; };
+		8D44E91629C06440003C328C /* MobileTestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D44E91529C06440003C328C /* MobileTestAppApp.swift */; };
 		8D44E91A29C06441003C328C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D44E91929C06441003C328C /* Assets.xcassets */; };
 		8D44E91D29C06441003C328C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D44E91C29C06441003C328C /* Preview Assets.xcassets */; };
 		8D44E92429C064A8003C328C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D44E92329C064A8003C328C /* Coordinator.swift */; };
@@ -75,8 +75,8 @@
 		8D091A7229C2146800101C2C /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		8D091A7429C214A100101C2C /* DialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogView.swift; sourceTree = "<group>"; };
 		8D091A8229C31F5700101C2C /* CustomNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarView.swift; sourceTree = "<group>"; };
-		8D44E91229C06440003C328C /* EffectiveMobileTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EffectiveMobileTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8D44E91529C06440003C328C /* EffectiveMobileTestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectiveMobileTestAppApp.swift; sourceTree = "<group>"; };
+		8D44E91229C06440003C328C /* MobileTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D44E91529C06440003C328C /* MobileTestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileTestAppApp.swift; sourceTree = "<group>"; };
 		8D44E91929C06441003C328C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D44E91C29C06441003C328C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8D44E92329C064A8003C328C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -175,7 +175,7 @@
 		8D44E91329C06440003C328C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D44E91229C06440003C328C /* EffectiveMobileTestApp.app */,
+				8D44E91229C06440003C328C /* MobileTestApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -183,7 +183,7 @@
 		8D44E91429C06440003C328C /* EffectiveMobileTestApp */ = {
 			isa = PBXGroup;
 			children = (
-				8D44E91529C06440003C328C /* EffectiveMobileTestAppApp.swift */,
+				8D44E91529C06440003C328C /* MobileTestAppApp.swift */,
 				8DF4B37729CCE668009F546B /* MainTabCoordinator */,
 				8D44E92529C06850003C328C /* Core */,
 				8D7BE2B729C0B27C00CDE9A8 /* Services */,
@@ -360,9 +360,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D44E91129C06440003C328C /* EffectiveMobileTestApp */ = {
+		8D44E91129C06440003C328C /* MobileTestApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8D44E92029C06441003C328C /* Build configuration list for PBXNativeTarget "EffectiveMobileTestApp" */;
+			buildConfigurationList = 8D44E92029C06441003C328C /* Build configuration list for PBXNativeTarget "MobileTestApp" */;
 			buildPhases = (
 				8D44E90E29C06440003C328C /* Sources */,
 				8D44E90F29C06440003C328C /* Frameworks */,
@@ -372,9 +372,9 @@
 			);
 			dependencies = (
 			);
-			name = EffectiveMobileTestApp;
+			name = MobileTestApp;
 			productName = EffectiveMobileTestApp;
-			productReference = 8D44E91229C06440003C328C /* EffectiveMobileTestApp.app */;
+			productReference = 8D44E91229C06440003C328C /* MobileTestApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -392,7 +392,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8D44E90D29C06440003C328C /* Build configuration list for PBXProject "EffectiveMobileTestApp" */;
+			buildConfigurationList = 8D44E90D29C06440003C328C /* Build configuration list for PBXProject "MobileTestApp" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -405,7 +405,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D44E91129C06440003C328C /* EffectiveMobileTestApp */,
+				8D44E91129C06440003C328C /* MobileTestApp */,
 			);
 		};
 /* End PBXProject section */
@@ -442,7 +442,7 @@
 				8DF4B37329CC7DD6009F546B /* SearchHintView.swift in Sources */,
 				8D091A7129C2142D00101C2C /* HeartView.swift in Sources */,
 				8D091A6F29C2124E00101C2C /* TabBarItemPreferenceKey.swift in Sources */,
-				8D44E91629C06440003C328C /* EffectiveMobileTestAppApp.swift in Sources */,
+				8D44E91629C06440003C328C /* MobileTestAppApp.swift in Sources */,
 				8DE1A75C29C8B1310042EA17 /* HomeCoordinatorView.swift in Sources */,
 				8D44E92829C06867003C328C /* AuthView.swift in Sources */,
 				8D7BE2C829C0EBBB00CDE9A8 /* ProfileRow.swift in Sources */,
@@ -676,7 +676,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8D44E90D29C06440003C328C /* Build configuration list for PBXProject "EffectiveMobileTestApp" */ = {
+		8D44E90D29C06440003C328C /* Build configuration list for PBXProject "MobileTestApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8D44E91E29C06441003C328C /* Debug */,
@@ -685,7 +685,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8D44E92029C06441003C328C /* Build configuration list for PBXNativeTarget "EffectiveMobileTestApp" */ = {
+		8D44E92029C06441003C328C /* Build configuration list for PBXNativeTarget "MobileTestApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8D44E92129C06441003C328C /* Debug */,

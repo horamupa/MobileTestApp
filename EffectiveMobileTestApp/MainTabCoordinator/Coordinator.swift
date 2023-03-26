@@ -28,19 +28,13 @@ class Coordinator: ObservableObject {
     }
     
     func changeTab(_ tab: TabBarItem) {
-//        path.append(tab)
         self.tabSelection = tab
     }
     
-//
     func push(_ page: Page ) {
         path.append(page)
     }
-//
-//    func sheet(_ sheet: Sheet) {
-//        self.sheet = sheet
-//    }
-//
+
     func fullScreenCover(_ fullScreenCover: FullScreenCover) {
         self.fullScreenCover = fullScreenCover
     }
@@ -48,19 +42,12 @@ class Coordinator: ObservableObject {
     func pop() {
         self.path.removeLast()
     }
-//
-//    func popToRoot() {
-//        self.path.removeLast(path.count )
-//    }
-//
-//    func dismissSheet() {
-//        self.sheet = nil
-//    }
-//
+
+    
     func dismissFullScreenCover() {
         self.fullScreenCover = nil
     }
-//
+
     @ViewBuilder
     func build(page: Page) -> some View {
         switch page {
@@ -69,17 +56,7 @@ class Coordinator: ObservableObject {
         }
 
     }
-//
-//    @ViewBuilder
-//    func present(sheet: Sheet) -> some View {
-//        switch sheet {
-//        case .sheetView:
-//            NavigationStack {
-//                SheetView()
-//            }
-//        }
-//    }
-//
+
     @ViewBuilder
     func presentFull(fullScreenCover: FullScreenCover) -> some View {
         switch fullScreenCover {
