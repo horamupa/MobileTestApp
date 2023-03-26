@@ -167,7 +167,7 @@
 		8D44E90929C06440003C328C = {
 			isa = PBXGroup;
 			children = (
-				8D44E91429C06440003C328C /* EffectiveMobileTestApp */,
+				8D44E91429C06440003C328C /* MobileTestApp */,
 				8D44E91329C06440003C328C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -180,7 +180,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8D44E91429C06440003C328C /* EffectiveMobileTestApp */ = {
+		8D44E91429C06440003C328C /* MobileTestApp */ = {
 			isa = PBXGroup;
 			children = (
 				8D44E91529C06440003C328C /* MobileTestAppApp.swift */,
@@ -196,7 +196,7 @@
 				8D44E91B29C06441003C328C /* Preview Content */,
 				8DDA0F1629C4C03D0048E2B8 /* CoorTabbar.swift */,
 			);
-			path = EffectiveMobileTestApp;
+			path = MobileTestApp;
 			sourceTree = "<group>";
 		};
 		8D44E91B29C06441003C328C /* Preview Content */ = {
